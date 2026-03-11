@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subhasish Sahu - Karya </title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #E85C0D;
+    --orange-light: #FF7A33;
+    --orange-pale: #FFF0E8;
+    --dark: #1A1009;
+    --mid: #4A3728;
+    --gray: #8A7A6E;
+    --light: #F9F4F0;
+    --white: #FFFFFF;
+    --accent: #1B3A5C;
+  }
+
+- { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+font-family: ‘DM Sans’, sans-serif;
+background: var(–light);
+color: var(–dark);
+min-height: 100vh;
+}
+
+/* ── HERO ── */
+.hero {
+background: var(–dark);
+padding: 60px 64px 52px;
+display: grid;
+grid-template-columns: 1fr auto;
+gap: 40px;
+align-items: end;
+}
+
+.hero-name {
+font-family: ‘DM Serif Display’, serif;
+font-size: clamp(40px, 5vw, 68px);
+color: var(–white);
+line-height: 1.0;
+letter-spacing: -1px;
+}
+
+.hero-name span { color: var(–orange); }
+
+.hero-title {
+font-size: 15px;
+font-weight: 500;
+letter-spacing: 3px;
+text-transform: uppercase;
+color: var(–gray);
+margin-top: 12px;
+}
+
+.hero-contact {
+display: flex;
+gap: 24px;
+margin-top: 20px;
+flex-wrap: wrap;
+}
+
+.hero-contact a, .hero-contact span {
+color: var(–gray);
+font-size: 13px;
+text-decoration: none;
+display: flex;
+align-items: center;
+gap: 6px;
+transition: color .2s;
+}
+
+.hero-contact a:hover { color: var(–orange); }
+
+.hero-stats {
+display: flex;
+flex-direction: column;
+gap: 16px;
+align-items: flex-end;
+}
+
+.stat-pill {
+background: rgba(232,92,13,0.15);
+border: 1px solid rgba(232,92,13,0.3);
+border-radius: 40px;
+padding: 10px 22px;
+text-align: center;
+}
+
+.stat-pill .num {
+font-family: ‘DM Serif Display’, serif;
+font-size: 32px;
+color: var(–orange);
+line-height: 1;
+}
+
+.stat-pill .label {
+font-size: 10px;
+text-transform: uppercase;
+letter-spacing: 2px;
+color: var(–gray);
+margin-top: 2px;
+}
+
+/* ── LAYOUT ── */
+.page {
+max-width: 1200px;
+margin: 0 auto;
+padding: 48px 48px;
+}
+
+.grid-2 {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 32px;
+margin-bottom: 32px;
+}
+
+.grid-3 {
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+gap: 32px;
+margin-bottom: 32px;
+}
+
+/* ── CARDS ── */
+.card {
+background: var(–white);
+border-radius: 16px;
+padding: 32px;
+position: relative;
+overflow: hidden;
+box-shadow: 0 2px 24px rgba(26,16,9,0.06);
+}
+
+.card-full { grid-column: 1 / -1; }
+
+.card-label {
+font-size: 10px;
+font-weight: 600;
+letter-spacing: 3px;
+text-transform: uppercase;
+color: var(–orange);
+margin-bottom: 20px;
+}
+
+.card-title {
+font-family: ‘DM Serif Display’, serif;
+font-size: 22px;
+color: var(–dark);
+margin-bottom: 24px;
+}
+
+/* ── TIMELINE ── */
+.timeline {
+position: relative;
+padding-left: 28px;
+}
+
+.timeline::before {
+content: ‘’;
+position: absolute;
+left: 8px;
+top: 8px;
+bottom: 8px;
+width: 2px;
+background: linear-gradient(to bottom, var(–orange) 0%, rgba(232,92,13,0.1) 100%);
+}
+
+.tl-item {
+position: relative;
+margin-bottom: 28px;
+animation: fadeInLeft .5s ease both;
+}
+
+.tl-item:nth-child(1) { animation-delay: .1s; }
+.tl-item:nth-child(2) { animation-delay: .2s; }
+.tl-item:nth-child(3) { animation-delay: .3s; }
+.tl-item:nth-child(4) { animation-delay: .4s; }
+.tl-item:nth-child(5) { animation-delay: .5s; }
+.tl-item:nth-child(6) { animation-delay: .6s; }
+
+.tl-dot {
+position: absolute;
+left: -24px;
+top: 5px;
+width: 14px;
+height: 14px;
+border-radius: 50%;
+background: var(–white);
+border: 2.5px solid var(–orange);
+z-index: 1;
+transition: transform .2s;
+}
+
+.tl-item.current .tl-dot {
+background: var(–orange);
+box-shadow: 0 0 0 4px rgba(232,92,13,0.2);
+}
+
+.tl-item:hover .tl-dot { transform: scale(1.3); }
+
+.tl-period {
+font-size: 10px;
+font-weight: 600;
+letter-spacing: 2px;
+text-transform: uppercase;
+color: var(–orange);
+margin-bottom: 3px;
+}
+
+.tl-role {
+font-weight: 600;
+font-size: 14px;
+color: var(–dark);
+line-height: 1.3;
+}
+
+.tl-company {
+font-size: 12px;
+color: var(–gray);
+margin-top: 2px;
+}
+
+.tl-tag {
+display: inline-block;
+background: var(–orange-pale);
+color: var(–orange);
+font-size: 10px;
+font-weight: 600;
+padding: 2px 8px;
+border-radius: 20px;
+margin-top: 5px;
+}
+
+/* ── SKILLS RADAR ── */
+.skills-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 14px;
+}
+
+.skill-row {
+display: flex;
+flex-direction: column;
+gap: 5px;
+}
+
+.skill-name {
+display: flex;
+justify-content: space-between;
+font-size: 12px;
+font-weight: 500;
+color: var(–mid);
+}
+
+.skill-pct { color: var(–orange); font-weight: 600; }
+
+.skill-bar {
+height: 6px;
+background: var(–orange-pale);
+border-radius: 10px;
+overflow: hidden;
+}
+
+.skill-fill {
+height: 100%;
+background: linear-gradient(90deg, var(–orange), var(–orange-light));
+border-radius: 10px;
+width: 0%;
+transition: width 1.2s cubic-bezier(.22,1,.36,1);
+}
+
+/* ── DOMAIN DONUTS ── */
+.donuts-row {
+display: flex;
+justify-content: space-around;
+align-items: center;
+gap: 16px;
+flex-wrap: wrap;
+}
+
+.donut-wrap {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 8px;
+flex: 1;
+min-width: 90px;
+}
+
+.donut-svg { transform: rotate(-90deg); }
+
+.donut-bg { fill: none; stroke: var(–orange-pale); stroke-width: 7; }
+
+.donut-ring {
+fill: none;
+stroke-width: 7;
+stroke-linecap: round;
+stroke-dasharray: 0 100;
+transition: stroke-dasharray 1.4s cubic-bezier(.22,1,.36,1);
+}
+
+.donut-label {
+font-size: 11px;
+font-weight: 600;
+color: var(–mid);
+text-align: center;
+line-height: 1.3;
+}
+
+.donut-years {
+font-family: ‘DM Serif Display’, serif;
+font-size: 20px;
+color: var(–dark);
+text-align: center;
+line-height: 1;
+}
+
+/* ── GLOBE / LOCATIONS ── */
+.locations-grid {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 16px;
+}
+
+.location-card {
+background: var(–light);
+border-radius: 12px;
+padding: 18px 16px;
+text-align: center;
+border: 1px solid transparent;
+transition: border-color .2s, transform .2s;
+cursor: default;
+}
+
+.location-card:hover {
+border-color: var(–orange);
+transform: translateY(-3px);
+}
+
+.location-flag {
+font-size: 32px;
+margin-bottom: 8px;
+display: block;
+}
+
+.location-name {
+font-size: 13px;
+font-weight: 600;
+color: var(–dark);
+}
+
+.location-role {
+font-size: 11px;
+color: var(–gray);
+margin-top: 3px;
+line-height: 1.4;
+}
+
+/* ── CERT CHIPS ── */
+.certs-flow {
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+}
+
+.cert-chip {
+display: flex;
+align-items: center;
+gap: 8px;
+background: var(–light);
+border: 1px solid rgba(232,92,13,0.2);
+border-radius: 40px;
+padding: 8px 16px;
+transition: background .2s, border-color .2s;
+}
+
+.cert-chip:hover {
+background: var(–orange-pale);
+border-color: var(–orange);
+}
+
+.cert-icon {
+width: 24px;
+height: 24px;
+border-radius: 50%;
+background: var(–orange);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 11px;
+color: white;
+font-weight: 700;
+flex-shrink: 0;
+}
+
+.cert-text { font-size: 12px; font-weight: 500; color: var(–mid); }
+.cert-year { font-size: 10px; color: var(–gray); }
+
+/* ── HIGHLIGHT NUMBERS ── */
+.highlights {
+display: flex;
+gap: 0;
+}
+
+.hl-item {
+flex: 1;
+text-align: center;
+padding: 20px 12px;
+border-right: 1px solid var(–light);
+position: relative;
+}
+
+.hl-item:last-child { border-right: none; }
+
+.hl-num {
+font-family: ‘DM Serif Display’, serif;
+font-size: 40px;
+color: var(–orange);
+line-height: 1;
+display: block;
+}
+
+.hl-label {
+font-size: 11px;
+font-weight: 500;
+color: var(–gray);
+letter-spacing: 1px;
+text-transform: uppercase;
+margin-top: 4px;
+}
+
+/* ── SUMMARY CARD ── */
+.summary-text {
+font-size: 15px;
+line-height: 1.75;
+color: var(–mid);
+font-weight: 300;
+}
+
+.summary-text strong {
+color: var(–dark);
+font-weight: 600;
+}
+
+.badge-row {
+display: flex;
+gap: 8px;
+flex-wrap: wrap;
+margin-top: 20px;
+}
+
+.badge {
+background: var(–dark);
+color: var(–white);
+font-size: 11px;
+font-weight: 500;
+letter-spacing: .5px;
+padding: 5px 14px;
+border-radius: 20px;
+}
+
+.badge.orange { background: var(–orange); }
+
+/* ── DECOR ── */
+.card-decor {
+position: absolute;
+top: -20px;
+right: -20px;
+width: 100px;
+height: 100px;
+border-radius: 50%;
+background: radial-gradient(circle, rgba(232,92,13,0.08) 0%, transparent 70%);
+pointer-events: none;
+}
+
+@keyframes fadeInLeft {
+from { opacity: 0; transform: translateX(-12px); }
+to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInUp {
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up {
+animation: fadeInUp .6s ease both;
+}
+
+/* ── FOOTER ── */
+.footer {
+text-align: center;
+padding: 24px;
+font-size: 11px;
+color: var(–gray);
+letter-spacing: 1px;
+text-transform: uppercase;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+.hero { grid-template-columns: 1fr; padding: 40px 28px; }
+.page { padding: 28px 20px; }
+.grid-2, .grid-3 { grid-template-columns: 1fr; }
+.locations-grid { grid-template-columns: repeat(2, 1fr); }
+.card-full { grid-column: 1; }
+.highlights { flex-wrap: wrap; }
+.hl-item { min-width: 45%; }
+}
+</style>
+
+</head>
+<body>
+
+<!-- HERO -->
+
+<div class="hero">
+  <div>
+    <div class="hero-name">Subhasish<br><span>Sahu</span></div>
+    <div class="hero-title">SAP Business Analytics Practitioner</div>
+    <div class="hero-contact">
+      <span>📍 Munich Deutschland </span>
+      <span>📞 +91 9920871051 </span>
+      <a href="mailto:subhasish.sahu.bi@gmail.com">✉ subhasish.sahu.bi@gmail.com</a>
+      <a href="https://linkedin.com/in/subhasishsahu22" target="_blank">🔗 LinkedIn</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-pill">
+      <div class="num">19+</div>
+      <div class="label">Years Experience</div>
+    </div>
+    <div class="stat-pill">
+      <div class="num">6</div>
+      <div class="label">Companies</div>
+    </div>
+    <div class="stat-pill">
+      <div class="num">4</div>
+      <div class="label">Countries</div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- ROW 1: Summary + highlights -->
+
+  <div class="grid-2">
+    <div class="card fade-up">
+      <div class="card-decor"></div>
+      <div class="card-label">About</div>
+      <p class="summary-text">
+        Business Analytics Consultant specializing in helping organizations establish a <strong>reliable single source of truth</strong>. Proven track record of delivering <strong>business-driven analytics strategies</strong> through rapid prototyping and real-world use cases, engaging stakeholders across SAP and Non-SAP BI product suites.
+      </p>
+      <div class="badge-row">
+        <span class="badge orange">SAP Expert</span>
+        <span class="badge">Solution Architect</span>
+        <span class="badge">Project Manager</span>
+        <span class="badge">Team Lead</span>
+        <span class="badge">Pre-Sales</span>
+      </div>
+    </div>
+
+```
+<div class="card fade-up" style="animation-delay:.15s">
+  <div class="card-label">Impact Numbers</div>
+  <div class="highlights">
+    <div class="hl-item">
+      <span class="hl-num">22+</span>
+      <div class="hl-label">Prototypes<br>Delivered</div>
+    </div>
+    <div class="hl-item">
+      <span class="hl-num">250+</span>
+      <div class="hl-label">Global<br>Users</div>
+    </div>
+    <div class="hl-item">
+      <span class="hl-num">100+</span>
+      <div class="hl-label">Reports<br>Optimized</div>
+    </div>
+    <div class="hl-item">
+      <span class="hl-num">12</span>
+      <div class="hl-label">Core Data<br>Models</div>
+    </div>
+  </div>
+</div>
+```
+
+  </div>
+
+  <!-- ROW 2: Timeline + Skills -->
+
+  <div class="grid-2">
+    <div class="card fade-up" style="animation-delay:.2s">
+      <div class="card-label">Career Timeline</div>
+      <div class="card-title">19 Years of Growth</div>
+      <div class="timeline">
+
+```
+    <div class="tl-item current">
+      <div class="tl-dot"></div>
+      <div class="tl-period">2021 – Present</div>
+      <div class="tl-role">Managing Application Consultant</div>
+      <div class="tl-company">Capgemini, Germany</div>
+      <span class="tl-tag">SAP BI · Databricks</span>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-period">2019 – 2021</div>
+      <div class="tl-role">External Consultant</div>
+      <div class="tl-company">AIA Group, Hong Kong</div>
+      <span class="tl-tag">Insurance · IFRS 17</span>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-period">2013 – 2019</div>
+      <div class="tl-role">Manager / Senior BI Consultant</div>
+      <div class="tl-company">Capgemini, India</div>
+      <span class="tl-tag">Pharma · Airlines · Automotive</span>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-period">2013</div>
+      <div class="tl-role">SAP BI Subject Matter Expert</div>
+      <div class="tl-company">Reliance Industries, India</div>
+      <span class="tl-tag">Telecom · SAP BO</span>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-period">2010 – 2013</div>
+      <div class="tl-role">SAP BI Consultant</div>
+      <div class="tl-company">HCL Infosystems, India</div>
+      <span class="tl-tag">SAP BW · BO</span>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-period">2006 – 2010</div>
+      <div class="tl-role">Software Engineer → Senior SME</div>
+      <div class="tl-company">Accenture & AMDOCS, India</div>
+      <span class="tl-tag">MS BI · SSIS · ETL</span>
+    </div>
+
+  </div>
+</div>
+
+<div class="card fade-up" style="animation-delay:.3s">
+  <div class="card-label">Technical Skills</div>
+  <div class="card-title">Proficiency</div>
+  <div class="skills-grid" id="skillsGrid">
+    <!-- Filled by JS -->
+  </div>
+</div>
+```
+
+  </div>
+
+  <!-- ROW 3: Domain + Global -->
+
+  <div class="grid-2">
+    <div class="card fade-up" style="animation-delay:.35s">
+      <div class="card-label">Industry Experience</div>
+      <div class="card-title">Domain Breakdown</div>
+      <div class="donuts-row" id="donutsRow">
+        <!-- Filled by JS -->
+      </div>
+    </div>
+
+```
+<div class="card fade-up" style="animation-delay:.4s">
+  <div class="card-label">Global Footprint</div>
+  <div class="card-title">Customer Facing Roles</div>
+  <div class="locations-grid">
+    <div class="location-card">
+      <span class="location-flag">🇩🇪</span>
+      <div class="location-name">Germany</div>
+      <div class="location-role">Capgemini · 2021–Now</div>
+    </div>
+    <div class="location-card">
+      <span class="location-flag">🇭🇰</span>
+      <div class="location-name">Hong Kong</div>
+      <div class="location-role">AIA Group · Cathay Pacific</div>
+    </div>
+    <div class="location-card">
+      <span class="location-flag">🇬🇧</span>
+      <div class="location-name">United Kingdom</div>
+      <div class="location-role">Smiths Detection · Unilever</div>
+    </div>
+    <div class="location-card">
+      <span class="location-flag">🇮🇳</span>
+      <div class="location-name">India</div>
+      <div class="location-role">Takeda · Accenture · HCL</div>
+    </div>
+  </div>
+</div>
+```
+
+  </div>
+
+  <!-- ROW 4: Certifications -->
+
+  <div class="card card-full fade-up" style="animation-delay:.45s">
+    <div class="card-label">Certifications & Learning</div>
+    <div class="card-title">Continuous Development</div>
+    <div class="certs-flow">
+      <div class="cert-chip">
+        <div class="cert-icon">P2</div>
+        <div><div class="cert-text">PRINCE2 Practitioner</div><div class="cert-year">APMG · 2015</div></div>
+      </div>
+      <div class="cert-chip">
+        <div class="cert-icon">S</div>
+        <div><div class="cert-text">SAP BW powered by HANA</div><div class="cert-year">SAP · 2014</div></div>
+      </div>
+      <div class="cert-chip">
+        <div class="cert-icon">IIT</div>
+        <div><div class="cert-text">Adv. Business Analytics & Optimization</div><div class="cert-year">IIT Kharagpur · 2015</div></div>
+      </div>
+      <div class="cert-chip">
+        <div class="cert-icon">MIT</div>
+        <div><div class="cert-text">The Analytics Edge</div><div class="cert-year">edX MIT · 2015</div></div>
+      </div>
+      <div class="cert-chip">
+        <div class="cert-icon">MIT</div>
+        <div><div class="cert-text">Supply Chain Analytics</div><div class="cert-year">MITx · 2017</div></div>
+      </div>
+      <div class="cert-chip">
+        <div class="cert-icon">S</div>
+        <div><div class="cert-text">SAP S/4HANA Cloud – Intelligent ERP</div><div class="cert-year">SAP · 2018</div></div>
+      </div>
+      <div class="cert-chip">
+        <div class="cert-icon">CFI</div>
+        <div><div class="cert-text">FinTech & Risk Management</div><div class="cert-year">CFI · Recent</div></div>
+      </div>
+      <div class="cert-chip">
+        <div class="cert-icon">CFI</div>
+        <div><div class="cert-text">Excel for Finance – Fundamentals</div><div class="cert-year">CFI · Recent</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 5: Education -->
+
+  <div class="grid-2" style="margin-bottom:0">
+    <div class="card fade-up" style="animation-delay:.5s; border-left: 4px solid var(--orange);">
+      <div class="card-label">Education</div>
+      <div style="font-family:'DM Serif Display',serif; font-size:18px; color:var(--dark); margin-bottom:6px;">M.Sc. Business Analytics</div>
+      <div style="font-size:13px; color:var(--gray);">Birla Institute of Technology and Science</div>
+      <div style="font-size:12px; color:var(--orange); margin-top:4px;">Specialization: Financial Risk Analytics · Advanced Financial Modelling</div>
+      <div style="font-size:11px; color:var(--gray); margin-top:8px; letter-spacing:1px;">2018 – 2021</div>
+    </div>
+    <div class="card fade-up" style="animation-delay:.55s; border-left: 4px solid var(--accent);">
+      <div class="card-label">Education</div>
+      <div style="font-family:'DM Serif Display',serif; font-size:18px; color:var(--dark); margin-bottom:6px;">B.E. Electrical Engineering</div>
+      <div style="font-size:13px; color:var(--gray);">Institute of Technical Education and Research</div>
+      <div style="font-size:12px; color:var(--accent); margin-top:4px;">First Class Degree</div>
+      <div style="font-size:11px; color:var(--gray); margin-top:8px; letter-spacing:1px;">2002 – 2006</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">Subhasish Sahu · SAP Business Analytics Practitioner · Hong Kong</div>
+
+<script>
+// ── SKILLS ──
+const skills = [
+  { name: "SAP BusinessObjects", pct: 98 },
+  { name: "SAP BW/4HANA", pct: 96 },
+  { name: "SAP Analytics Cloud", pct: 88 },
+  { name: "SAP Lumira Designer", pct: 90 },
+  { name: "Data Modelling", pct: 95 },
+  { name: "SQL / HANA Views", pct: 85 },
+  { name: "Solution Architecture", pct: 88 },
+  { name: "Project Management", pct: 85 },
+  { name: "Power BI / MS BI", pct: 75 },
+  { name: "Financial Analytics", pct: 82 },
+];
+
+const sg = document.getElementById('skillsGrid');
+skills.forEach(s => {
+  const row = document.createElement('div');
+  row.className = 'skill-row';
+  row.innerHTML = `
+    <div class="skill-name">
+      <span>${s.name}</span>
+      <span class="skill-pct">${s.pct}%</span>
+    </div>
+    <div class="skill-bar">
+      <div class="skill-fill" data-pct="${s.pct}"></div>
+    </div>`;
+  sg.appendChild(row);
+});
+
+// ── DONUTS ──
+const domains = [
+  { label: "Insurance", years: 2, color: "#E85C0D" },
+  { label: "Pharma", years: 2, color: "#C94F0B" },
+  { label: "Airlines &\nAutomotive", years: 4, color: "#FF7A33" },
+  { label: "FMCG", years: 4, color: "#FFB085" },
+  { label: "Utility &\nLife Science", years: 4, color: "#FFC49A" },
+  { label: "Telecom &\nOther", years: 3, color: "#FFD8BF" },
+];
+
+const totalYears = 19;
+const dr = document.getElementById('donutsRow');
+domains.forEach(d => {
+  const circ = 2 * Math.PI * 16;
+  const fill = (d.years / totalYears) * 100;
+  const wrap = document.createElement('div');
+  wrap.className = 'donut-wrap';
+  wrap.innerHTML = `
+    <div class="donut-years">${d.years}y</div>
+    <svg class="donut-svg" width="54" height="54" viewBox="0 0 36 36">
+      <circle class="donut-bg" cx="18" cy="18" r="16"/>
+      <circle class="donut-ring" cx="18" cy="18" r="16" stroke="${d.color}"
+        data-fill="${fill}" stroke-dashoffset="0"/>
+    </svg>
+    <div class="donut-label">${d.label.replace('\n','<br>')}</div>`;
+  dr.appendChild(wrap);
+});
+
+// ── ANIMATE ON LOAD ──
+window.addEventListener('load', () => {
+  // Skill bars
+  setTimeout(() => {
+    document.querySelectorAll('.skill-fill').forEach(el => {
+      el.style.width = el.dataset.pct + '%';
+    });
+  }, 300);
+
+  // Donut rings
+  setTimeout(() => {
+    document.querySelectorAll('.donut-ring').forEach(el => {
+      const fill = parseFloat(el.dataset.fill);
+      const circ = 2 * Math.PI * 16;
+      const dash = (fill / 100) * circ;
+      el.style.strokeDasharray = `${dash} ${circ}`;
+    });
+  }, 400);
+});
+</script>
+
+</body>
+</html>
