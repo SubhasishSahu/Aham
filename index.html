@@ -1,46 +1,218 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-theme="royal">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Subhasish Sahu – Visual Resume</title>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg:        #F2F4F3;
-  --surface:   #FFFFFF;
-  --surface2:  #EEF1EF;
-  --border:    #D8DDD9;
-  --ink:       #1E2820;
-  --ink2:      #3D4D42;
-  --muted:     #7A8C80;
-  --accent:    #3A7D5C;
-  --accent2:   #5BA082;
-  --accent3:   #2A5C42;
-  --warm:      #C87941;
-  --warm-pale: #F9F0E7;
-  --blue:      #2D6A8F;
-  --blue-pale: #E8F2F8;
-  --purple:    #6B4E8A;
-  --purple-pale:#F0EBF6;
-  --shadow:    0 2px 16px rgba(30,40,32,0.07);
-  --shadow-lg: 0 8px 40px rgba(30,40,32,0.10);
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-body {
-  font-family: 'Nunito Sans', sans-serif;
-  background: var(--bg);
-  color: var(--ink);
-  font-size: 14px;
-  line-height: 1.6;
+
+/* ══════════════════════════════════════════════
+THEME DEFINITIONS
+══════════════════════════════════════════════ */
+
+/* ── ROYAL BLUE (default) ── */
+[data-theme=“royal”] {
+–bg:         #ECEEF2;
+–surface:    #FFFFFF;
+–surface2:   #E4E8F0;
+–border:     #C8D0E0;
+–ink:        #0D1B3E;
+–ink2:       #1E3260;
+–muted:      #6B7FA8;
+–accent:     #1A3FAA;
+–accent2:    #3B63D4;
+–accent3:    #0D2878;
+–warm:       #C4960A;
+–warm-pale:  #FDF4DC;
+–glow:       rgba(26,63,170,0.18);
+–hero-bg:    #0D1B3E;
+–hero-grad1: rgba(59,99,212,0.22);
+–hero-grad2: rgba(196,150,10,0.10);
+–cloud-bg:   #E8ECF6;
+–tag-hover:  #1A3FAA;
 }
 
-/* ─── TOOLTIP ─── */
+/* ── MAROON ── */
+[data-theme=“maroon”] {
+–bg:         #F0EBEB;
+–surface:    #FFFFFF;
+–surface2:   #EDE3E3;
+–border:     #D9C8C8;
+–ink:        #2E0B0B;
+–ink2:       #5A1A1A;
+–muted:      #9A6E6E;
+–accent:     #7B1515;
+–accent2:    #A83030;
+–accent3:    #5A0E0E;
+–warm:       #B87333;
+–warm-pale:  #FDF0E6;
+–glow:       rgba(123,21,21,0.18);
+–hero-bg:    #2E0B0B;
+–hero-grad1: rgba(168,48,48,0.22);
+–hero-grad2: rgba(184,115,51,0.10);
+–cloud-bg:   #F0E8E8;
+–tag-hover:  #7B1515;
+}
+
+/* ── AQUA ── */
+[data-theme=“aqua”] {
+–bg:         #E6F4F4;
+–surface:    #FFFFFF;
+–surface2:   #D8EEEE;
+–border:     #B2D8D8;
+–ink:        #052A2A;
+–ink2:       #0D4A4A;
+–muted:      #4A8A8A;
+–accent:     #007A7A;
+–accent2:    #00AAAA;
+–accent3:    #005555;
+–warm:       #C47A20;
+–warm-pale:  #FDF3E3;
+–glow:       rgba(0,122,122,0.2);
+–hero-bg:    #052A2A;
+–hero-grad1: rgba(0,170,170,0.22);
+–hero-grad2: rgba(196,122,32,0.10);
+–cloud-bg:   #D6EDED;
+–tag-hover:  #007A7A;
+}
+
+/* ── ELECTRONIC (neon on dark) ── */
+[data-theme=“electronic”] {
+–bg:         #0A0E1A;
+–surface:    #111827;
+–surface2:   #1A2236;
+–border:     #1E2D4A;
+–ink:        #E8F0FF;
+–ink2:       #B0C4E8;
+–muted:      #5A7AAA;
+–accent:     #00D4FF;
+–accent2:    #40E8FF;
+–accent3:    #00A8CC;
+–warm:       #FF9500;
+–warm-pale:  rgba(255,149,0,0.12);
+–glow:       rgba(0,212,255,0.25);
+–hero-bg:    #050810;
+–hero-grad1: rgba(0,212,255,0.15);
+–hero-grad2: rgba(255,149,0,0.08);
+–cloud-bg:   #0E1628;
+–tag-hover:  #00D4FF;
+}
+
+/* ── MATRIX (green on black) ── */
+[data-theme=“matrix”] {
+–bg:         #050F05;
+–surface:    #0A170A;
+–surface2:   #0F220F;
+–border:     #1A3A1A;
+–ink:        #D0FFD0;
+–ink2:       #80E080;
+–muted:      #3A7A3A;
+–accent:     #00CC00;
+–accent2:    #00FF44;
+–accent3:    #008800;
+–warm:       #AAFF00;
+–warm-pale:  rgba(0,255,68,0.08);
+–glow:       rgba(0,204,0,0.3);
+–hero-bg:    #020802;
+–hero-grad1: rgba(0,255,68,0.12);
+–hero-grad2: rgba(170,255,0,0.06);
+–cloud-bg:   #0A1A0A;
+–tag-hover:  #00CC00;
+}
+
+/* ── MAINFRAME (amber terminal) ── */
+[data-theme=“mainframe”] {
+–bg:         #0C0800;
+–surface:    #160E00;
+–surface2:   #1E1400;
+–border:     #3A2A00;
+–ink:        #FFE080;
+–ink2:       #FFC840;
+–muted:      #A07820;
+–accent:     #FFA500;
+–accent2:    #FFCC44;
+–accent3:    #CC7700;
+–warm:       #FF6622;
+–warm-pale:  rgba(255,102,34,0.10);
+–glow:       rgba(255,165,0,0.28);
+–hero-bg:    #080500;
+–hero-grad1: rgba(255,165,0,0.14);
+–hero-grad2: rgba(255,102,34,0.08);
+–cloud-bg:   #180F00;
+–tag-hover:  #FFA500;
+}
+
+/* ══════════════════════════════════════════════
+BASE STYLES
+══════════════════════════════════════════════ */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+font-family: ‘Nunito Sans’, sans-serif;
+background: var(–bg);
+color: var(–ink);
+font-size: 14px;
+line-height: 1.6;
+transition: background .4s, color .4s;
+}
+
+/* matrix/mainframe/electronic: monospace flavour */
+[data-theme=“matrix”] body,
+[data-theme=“mainframe”] body,
+[data-theme=“electronic”] body {
+font-family: ‘Courier New’, monospace;
+}
+
+/* ── THEME SWITCHER ── */
+.theme-bar {
+position: sticky;
+top: 0;
+z-index: 100;
+background: var(–hero-bg);
+border-bottom: 1px solid rgba(255,255,255,0.07);
+display: flex;
+align-items: center;
+justify-content: flex-end;
+gap: 6px;
+padding: 8px 24px;
+backdrop-filter: blur(8px);
+}
+.theme-label {
+font-size: 10px;
+letter-spacing: 2px;
+text-transform: uppercase;
+color: rgba(255,255,255,0.35);
+margin-right: 6px;
+font-weight: 600;
+}
+.theme-btn {
+border: none;
+border-radius: 20px;
+padding: 5px 14px;
+font-size: 11px;
+font-weight: 700;
+letter-spacing: .5px;
+cursor: pointer;
+transition: transform .15s, box-shadow .15s, opacity .2s;
+opacity: .6;
+}
+.theme-btn:hover { opacity: 1; transform: translateY(-1px); }
+.theme-btn.active { opacity: 1; box-shadow: 0 0 0 2px #fff; transform: translateY(-1px); }
+
+.theme-btn[data-t=“royal”]      { background:#1A3FAA; color:#fff; }
+.theme-btn[data-t=“maroon”]     { background:#7B1515; color:#fff; }
+.theme-btn[data-t=“aqua”]       { background:#007A7A; color:#fff; }
+.theme-btn[data-t=“electronic”] { background:#00D4FF; color:#000; }
+.theme-btn[data-t=“matrix”]     { background:#00CC00; color:#000; }
+.theme-btn[data-t=“mainframe”]  { background:#FFA500; color:#000; }
+
+/* ── TOOLTIP ── */
 .tooltip {
 position: fixed;
 background: var(–ink);
-color: #fff;
+color: var(–bg);
 padding: 10px 14px;
 border-radius: 10px;
 font-size: 12px;
@@ -51,307 +223,287 @@ opacity: 0;
 transform: translateY(6px);
 transition: opacity .18s, transform .18s;
 z-index: 9999;
-box-shadow: var(–shadow-lg);
+box-shadow: 0 8px 40px var(–glow);
+border: 1px solid var(–border);
 }
 .tooltip.show { opacity: 1; transform: translateY(0); }
 .tooltip strong { color: var(–accent2); display: block; margin-bottom: 3px; font-size: 13px; }
 
-/* ─── HERO ─── */
+/* ── HERO ── */
 .hero {
-background: var(–ink);
+background: var(–hero-bg);
 background-image:
-radial-gradient(ellipse at 80% 0%, rgba(58,125,92,0.18) 0%, transparent 60%),
-radial-gradient(ellipse at 20% 100%, rgba(200,121,65,0.10) 0%, transparent 50%);
-padding: 56px 60px 48px;
+radial-gradient(ellipse at 80% 0%, var(–hero-grad1) 0%, transparent 60%),
+radial-gradient(ellipse at 20% 100%, var(–hero-grad2) 0%, transparent 50%);
+padding: 52px 60px 44px;
 display: grid;
 grid-template-columns: 1fr auto;
 gap: 40px;
 align-items: center;
+transition: background .4s;
 }
 .hero-name {
 font-family: ‘Lora’, serif;
-font-size: clamp(36px, 4.5vw, 62px);
+font-size: clamp(34px, 4.5vw, 60px);
 color: #fff;
 line-height: 1.05;
 letter-spacing: -.5px;
 }
 .hero-name em { color: var(–accent2); font-style: normal; }
-.hero-sub { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: var(–muted); font-weight: 600; margin-top: 10px; }
+.hero-sub { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,.4); font-weight: 700; margin-top: 10px; }
 .hero-contact { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 18px; }
-.hero-contact span, .hero-contact a { color: #8fa89a; font-size: 12.5px; text-decoration: none; display: flex; align-items: center; gap: 5px; transition: color .2s; }
+.hero-contact span, .hero-contact a { color: rgba(255,255,255,.45); font-size: 12px; text-decoration: none; display: flex; align-items: center; gap: 5px; transition: color .2s; }
 .hero-contact a:hover { color: var(–accent2); }
-.hero-pills { display: flex; flex-direction: column; gap: 12px; align-items: flex-end; }
-.pill { background: rgba(58,125,92,0.12); border: 1px solid rgba(58,125,92,0.25); border-radius: 50px; padding: 10px 24px; text-align: center; }
-.pill .n { font-family: ‘Lora’, serif; font-size: 30px; color: var(–accent2); line-height: 1; }
-.pill .l { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(–muted); margin-top: 2px; }
+.hero-pills { display: flex; flex-direction: column; gap: 10px; align-items: flex-end; }
+.pill { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 50px; padding: 10px 22px; text-align: center; }
+.pill .n { font-family: ‘Lora’, serif; font-size: 28px; color: var(–accent2); line-height: 1; }
+.pill .l { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.35); margin-top: 2px; }
 
-/* ─── PAGE ─── */
-.page { max-width: 1160px; margin: 0 auto; padding: 40px 40px 60px; }
-.row { display: grid; gap: 24px; margin-bottom: 24px; }
+/* ── PAGE ── */
+.page { max-width: 1160px; margin: 0 auto; padding: 36px 40px 60px; }
+.row { display: grid; gap: 22px; margin-bottom: 22px; }
 .row-2  { grid-template-columns: 1fr 1fr; }
-.row-3  { grid-template-columns: 1fr 1fr 1fr; }
-.row-13 { grid-template-columns: 1.15fr .85fr; }
+.row-13 { grid-template-columns: 1.18fr .82fr; }
 
-/* ─── CARD ─── */
-.card { background: var(–surface); border-radius: 18px; padding: 28px 30px; box-shadow: var(–shadow); border: 1px solid var(–border); position: relative; overflow: hidden; }
-.card-span { grid-column: 1 / -1; }
-.chip { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(–accent); background: rgba(58,125,92,0.08); border-radius: 20px; padding: 3px 10px; margin-bottom: 14px; }
-.card-h { font-family: ‘Lora’, serif; font-size: 19px; color: var(–ink); margin-bottom: 20px; line-height: 1.3; }
-
-/* ─── SUMMARY ─── */
-.summary-body { font-size: 14px; color: var(–ink2); line-height: 1.8; font-weight: 300; }
-.summary-body strong { color: var(–ink); font-weight: 700; }
-.tag-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
-.tag { background: var(–surface2); border: 1px solid var(–border); border-radius: 30px; padding: 5px 13px; font-size: 11.5px; font-weight: 600; color: var(–ink2); transition: background .2s, color .2s; }
-.tag:hover { background: var(–accent); color: #fff; border-color: var(–accent); }
-.tag.hi { background: var(–accent); color: #fff; border-color: var(–accent); }
-
-/* ══════════════════════════════════════════
-IMPACT SECTION — WORD CLOUD
-══════════════════════════════════════════ */
-.impact-wrap { display: flex; flex-direction: column; gap: 28px; }
-
-/* Category legend */
-.cloud-legend {
-display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 4px;
-}
-.legend-dot {
-display: flex; align-items: center; gap: 6px;
-font-size: 11px; font-weight: 600; color: var(–muted);
-}
-.legend-dot span {
-width: 10px; height: 10px; border-radius: 50%; display: inline-block;
-}
-
-/* Word cloud canvas */
-.word-cloud {
+/* ── CARD ── */
+.card {
+background: var(–surface);
+border-radius: 16px;
+padding: 26px 28px;
+border: 1px solid var(–border);
 position: relative;
-min-height: 210px;
-background: var(–surface2);
-border-radius: 14px;
-padding: 20px 24px;
-display: flex;
-flex-wrap: wrap;
-align-items: center;
-gap: 10px 14px;
 overflow: hidden;
+transition: background .4s, border-color .4s, box-shadow .25s;
+box-shadow: 0 2px 12px var(–glow);
 }
+.card:hover { box-shadow: 0 4px 24px var(–glow); }
+.card-span { grid-column: 1 / -1; }
 
-/* Each keyword */
+.chip {
+display: inline-block;
+font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;
+color: var(–accent); background: rgba(0,0,0,.0);
+border: 1px solid var(–accent);
+border-radius: 20px; padding: 2px 10px; margin-bottom: 13px;
+opacity: .8;
+}
+.card-h { font-family: ‘Lora’, serif; font-size: 18px; color: var(–ink); margin-bottom: 18px; line-height: 1.3; }
+
+/* ── SUMMARY ── */
+.summary-body { font-size: 13.5px; color: var(–ink2); line-height: 1.85; font-weight: 400; }
+.summary-body strong { color: var(–ink); font-weight: 700; }
+.tag-row { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 16px; }
+.tag {
+background: var(–surface2); border: 1px solid var(–border);
+border-radius: 30px; padding: 4px 12px; font-size: 11.5px; font-weight: 700;
+color: var(–ink2); cursor: default;
+transition: background .2s, color .2s, border-color .2s;
+}
+.tag:hover { background: var(–tag-hover); color: var(–bg); border-color: var(–tag-hover); }
+.tag.hi { background: var(–accent); color: var(–bg); border-color: var(–accent); }
+
+/* ══════════════════════════════════════════════
+WORD CLOUD
+══════════════════════════════════════════════ */
+.cloud-legend { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 10px; }
+.legend-dot { display: flex; align-items: center; gap: 6px; font-size: 10.5px; font-weight: 700; color: var(–muted); }
+.legend-dot span { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+
+.word-cloud {
+min-height: 200px;
+background: var(–cloud-bg);
+border-radius: 12px;
+padding: 18px 20px;
+display: flex; flex-wrap: wrap;
+align-items: center; gap: 9px 12px;
+border: 1px solid var(–border);
+transition: background .4s;
+}
 .wc-word {
 display: inline-block;
 font-weight: 700;
 border-radius: 6px;
-padding: 4px 10px;
+padding: 3px 9px;
 cursor: default;
-transition: transform .2s, box-shadow .2s, opacity .2s;
+transition: transform .2s, box-shadow .2s, opacity .35s, background .4s, color .4s;
 opacity: 0;
 transform: scale(.7);
-line-height: 1.3;
+line-height: 1.35;
 white-space: nowrap;
 }
 .wc-word.visible { opacity: 1; transform: scale(1); }
-.wc-word:hover { transform: scale(1.12); box-shadow: 0 4px 16px rgba(0,0,0,0.13); z-index: 2; }
+.wc-word:hover { transform: scale(1.14); box-shadow: 0 4px 18px var(–glow); z-index: 2; }
 
-/* Sizes */
-.wc-xl  { font-size: 22px; }
-.wc-lg  { font-size: 17px; }
-.wc-md  { font-size: 13.5px; }
-.wc-sm  { font-size: 11px; font-weight: 600; }
+/* Word sizes */
+.wc-xl { font-size: 21px; }
+.wc-lg { font-size: 16px; }
+.wc-md { font-size: 13px; }
+.wc-sm { font-size: 10.5px; font-weight: 700; }
 
-/* Colour themes per category */
-.wc-sap     { background: rgba(58,125,92,0.12);  color: var(–accent3); }
-.wc-azure   { background: rgba(45,106,143,0.12); color: var(–blue); }
-.wc-domain  { background: rgba(200,121,65,0.13); color: var(–warm); }
-.wc-practice{ background: rgba(107,78,138,0.10); color: var(–purple); }
+/* Word category colours — computed from theme vars at render time via JS */
+.wc-sap      { background: var(–wc-sap-bg,  rgba(26,63,170,.12));  color: var(–wc-sap-fg,  #0D2878); }
+.wc-azure    { background: var(–wc-az-bg,   rgba(0,160,200,.12));  color: var(–wc-az-fg,   #005577); }
+.wc-domain   { background: var(–wc-dom-bg,  rgba(196,150,10,.12)); color: var(–wc-dom-fg,  #7A5C00); }
+.wc-practice { background: var(–wc-pr-bg,   rgba(100,50,150,.10)); color: var(–wc-pr-fg,   #4A2880); }
 
-/* ══════════════════════════════════════════
-IMPACT SECTION — SCROLLABLE PROJECT CARDS
-══════════════════════════════════════════ */
-.projects-scroll-wrap {
-position: relative;
-}
+/* ══════════════════════════════════════════════
+PROJECT CARDS (horizontal scroll)
+══════════════════════════════════════════════ */
+.projects-scroll-wrap { position: relative; }
 .projects-scroll {
-display: flex;
-gap: 20px;
+display: flex; gap: 18px;
 overflow-x: auto;
-padding-bottom: 10px;
+padding-bottom: 8px;
 scroll-snap-type: x mandatory;
 -webkit-overflow-scrolling: touch;
 scrollbar-width: thin;
 scrollbar-color: var(–border) transparent;
 }
-.projects-scroll::-webkit-scrollbar { height: 5px; }
-.projects-scroll::-webkit-scrollbar-track { background: transparent; }
+.projects-scroll::-webkit-scrollbar { height: 4px; }
 .projects-scroll::-webkit-scrollbar-thumb { background: var(–border); border-radius: 10px; }
 
-/* Individual project card */
 .proj-card {
-flex: 0 0 300px;
+flex: 0 0 295px;
 scroll-snap-align: start;
 background: var(–surface);
 border: 1px solid var(–border);
-border-radius: 16px;
-padding: 22px 22px 18px;
-box-shadow: var(–shadow);
-display: flex;
-flex-direction: column;
-gap: 12px;
-transition: box-shadow .25s, transform .25s;
-position: relative;
-overflow: hidden;
+border-radius: 14px;
+padding: 20px 20px 16px;
+display: flex; flex-direction: column; gap: 11px;
+transition: box-shadow .25s, transform .25s, background .4s, border-color .4s;
+position: relative; overflow: hidden;
 }
 .proj-card::before {
 content: ‘’;
-position: absolute;
-top: 0; left: 0; right: 0;
-height: 4px;
-border-radius: 16px 16px 0 0;
+position: absolute; top: 0; left: 0; right: 0; height: 4px;
+border-radius: 14px 14px 0 0;
 }
-.proj-card:hover { box-shadow: var(–shadow-lg); transform: translateY(-3px); }
+.proj-card:hover { box-shadow: 0 6px 30px var(–glow); transform: translateY(-3px); }
 
-/* Accent bar colours */
-.proj-card.c-sage::before   { background: linear-gradient(90deg, var(–accent3), var(–accent2)); }
-.proj-card.c-blue::before   { background: linear-gradient(90deg, var(–blue), #5BA3C9); }
-.proj-card.c-warm::before   { background: linear-gradient(90deg, var(–warm), #E8A86A); }
-.proj-card.c-purple::before { background: linear-gradient(90deg, var(–purple), #9B78C0); }
+/* Each card gets accent from theme */
+.proj-card.c1::before { background: linear-gradient(90deg, var(–accent3), var(–accent2)); }
+.proj-card.c2::before { background: linear-gradient(90deg, var(–warm),    var(–accent2)); }
+.proj-card.c3::before { background: linear-gradient(90deg, var(–accent2), var(–accent)); }
+.proj-card.c4::before { background: linear-gradient(90deg, var(–accent),  var(–warm)); }
 
-.proj-header {}
-.proj-client { font-family: ‘Lora’, serif; font-size: 16px; color: var(–ink); line-height: 1.25; }
-.proj-role   { font-size: 11.5px; color: var(–muted); margin-top: 3px; }
+.proj-client { font-family: ‘Lora’, serif; font-size: 15px; color: var(–ink); line-height: 1.25; }
+.proj-co     { font-size: 12px; font-weight: 700; color: var(–accent2); margin-top: 2px; }
+.proj-role   { font-size: 11.5px; color: var(–muted); margin-top: 2px; }
 .proj-period {
-display: inline-block;
-font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
-padding: 2px 9px; border-radius: 20px; margin-top: 6px;
+display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+text-transform: uppercase; padding: 2px 9px; border-radius: 20px; margin-top: 4px;
+background: var(–surface2); color: var(–muted); border: 1px solid var(–border);
 }
-.proj-card.c-sage   .proj-period { background: rgba(58,125,92,0.1);  color: var(–accent3); }
-.proj-card.c-blue   .proj-period { background: rgba(45,106,143,0.1); color: var(–blue); }
-.proj-card.c-warm   .proj-period { background: rgba(200,121,65,0.1); color: var(–warm); }
-.proj-card.c-purple .proj-period { background: rgba(107,78,138,0.1); color: var(–purple); }
 
 /* Utilisation bar */
-.util-wrap { }
-.util-header { display: flex; justify-content: space-between; font-size: 11px; font-weight: 700; color: var(–muted); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
-.util-num { }
-.util-track { height: 8px; background: var(–surface2); border-radius: 10px; overflow: hidden; }
-.util-fill {
-height: 100%;
-border-radius: 10px;
-width: 0;
-transition: width 1.3s cubic-bezier(.22,1,.36,1);
-}
-.proj-card.c-sage   .util-fill { background: linear-gradient(90deg, var(–accent3), var(–accent2)); }
-.proj-card.c-blue   .util-fill { background: linear-gradient(90deg, var(–blue), #5BA3C9); }
-.proj-card.c-warm   .util-fill { background: linear-gradient(90deg, var(–warm), #E8A86A); }
-.proj-card.c-purple .util-fill { background: linear-gradient(90deg, var(–purple), #9B78C0); }
+.util-header { display: flex; justify-content: space-between; font-size: 10.5px; font-weight: 700; color: var(–muted); margin-bottom: 4px; text-transform: uppercase; letter-spacing: .8px; }
+.util-track { height: 7px; background: var(–surface2); border-radius: 10px; overflow: hidden; }
+.util-fill  { height: 100%; border-radius: 10px; width: 0; transition: width 1.3s cubic-bezier(.22,1,.36,1); background: linear-gradient(90deg, var(–accent3), var(–accent2)); }
 
-/* Highlights */
-.proj-bullets { list-style: none; display: flex; flex-direction: column; gap: 7px; flex: 1; }
-.proj-bullets li {
-font-size: 12px; color: var(–ink2); line-height: 1.45;
-padding-left: 14px; position: relative;
-}
-.proj-bullets li::before {
-content: ‘›’; position: absolute; left: 0;
-font-size: 15px; line-height: 1.2; font-weight: 700;
-}
-.proj-card.c-sage   .proj-bullets li::before { color: var(–accent); }
-.proj-card.c-blue   .proj-bullets li::before { color: var(–blue); }
-.proj-card.c-warm   .proj-bullets li::before { color: var(–warm); }
-.proj-card.c-purple .proj-bullets li::before { color: var(–purple); }
+/* Bullets */
+.proj-bullets { list-style: none; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.proj-bullets li { font-size: 11.5px; color: var(–ink2); line-height: 1.45; padding-left: 14px; position: relative; }
+.proj-bullets li::before { content: ‘›’; position: absolute; left: 0; font-size: 15px; line-height: 1.2; font-weight: 700; color: var(–accent); }
 
-/* Tech tags at bottom */
-.proj-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 4px; }
+/* Tech tags */
+.proj-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 2px; }
 .proj-tag {
-font-size: 10px; font-weight: 700; padding: 2px 8px;
-border-radius: 20px; background: var(–surface2);
-color: var(–muted); border: 1px solid var(–border);
+font-size: 9.5px; font-weight: 700; padding: 2px 7px; border-radius: 20px;
+background: var(–surface2); color: var(–muted); border: 1px solid var(–border);
+transition: background .3s, color .3s;
 }
 
-/* Scroll hint arrows */
-.scroll-hint {
-position: absolute; right: 0; top: 50%;
-transform: translateY(-50%);
-background: linear-gradient(to left, var(–bg) 40%, transparent);
-width: 60px; height: 100%;
+/* scroll arrow hint */
+.scroll-arrow {
+position: absolute; right: 0; top: 0; bottom: 8px;
+width: 52px;
+background: linear-gradient(to left, var(–surface) 50%, transparent);
 display: flex; align-items: center; justify-content: flex-end;
-pointer-events: none;
-padding-right: 4px;
-font-size: 20px; color: var(–muted);
+padding-right: 6px; pointer-events: none;
+font-size: 22px; color: var(–muted);
 }
 
-/* ─── TIMELINE ─── */
-.tl { position: relative; padding-left: 26px; }
-.tl::before { content:’’; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(to bottom, var(–accent) 0%, rgba(58,125,92,.1) 100%); }
-.tl-item { position: relative; margin-bottom: 22px; opacity: 0; transform: translateX(-8px); transition: opacity .4s, transform .4s; }
+/* ── TIMELINE ── */
+.tl { position: relative; padding-left: 24px; }
+.tl::before { content:’’; position: absolute; left: 6px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(to bottom, var(–accent) 0%, transparent 100%); }
+.tl-item { position: relative; margin-bottom: 20px; opacity: 0; transform: translateX(-8px); transition: opacity .4s, transform .4s; }
 .tl-item.visible { opacity: 1; transform: translateX(0); }
-.tl-dot { position: absolute; left: -22px; top: 4px; width: 13px; height: 13px; border-radius: 50%; background: var(–surface); border: 2px solid var(–accent); transition: transform .2s; }
-.tl-item.now .tl-dot { background: var(–accent); box-shadow: 0 0 0 4px rgba(58,125,92,0.18); }
+.tl-dot { position: absolute; left: -20px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(–surface); border: 2px solid var(–accent); transition: transform .2s; }
+.tl-item.now .tl-dot { background: var(–accent); box-shadow: 0 0 0 4px var(–glow); }
 .tl-item:hover .tl-dot { transform: scale(1.35); }
 .tl-period { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(–accent); margin-bottom: 2px; }
-.tl-role { font-weight: 700; font-size: 13.5px; color: var(–ink); }
-.tl-co { font-size: 12px; color: var(–muted); margin-top: 1px; }
-.tl-badge { display: inline-block; background: var(–warm-pale); color: var(–warm); font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; margin-top: 5px; }
+.tl-role   { font-weight: 700; font-size: 13px; color: var(–ink); }
+.tl-co     { font-size: 11.5px; color: var(–muted); margin-top: 1px; }
+.tl-badge  { display: inline-block; background: var(–surface2); color: var(–accent2); border: 1px solid var(–border); font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; margin-top: 5px; }
 
-/* ─── SKILL BARS ─── */
-.skill-list { display: flex; flex-direction: column; gap: 13px; }
-.sk-top { display: flex; justify-content: space-between; font-size: 12.5px; margin-bottom: 5px; }
+/* ── SKILL BARS ── */
+.skill-list { display: flex; flex-direction: column; gap: 12px; }
+.sk-top { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px; }
 .sk-name { font-weight: 600; color: var(–ink2); }
-.sk-pct { font-weight: 700; color: var(–accent); }
+.sk-pct  { font-weight: 700; color: var(–accent); }
 .sk-track { height: 7px; background: var(–surface2); border-radius: 10px; overflow: visible; position: relative; cursor: pointer; }
-.sk-fill { height: 100%; border-radius: 10px; background: linear-gradient(90deg, var(–accent3), var(–accent2)); width: 0; transition: width 1.1s cubic-bezier(.22,1,.36,1); position: relative; }
-.sk-fill::after { content:’’; position: absolute; right: -1px; top: 50%; transform: translateY(-50%); width: 11px; height: 11px; border-radius: 50%; background: var(–accent); border: 2px solid #fff; box-shadow: 0 0 0 2px var(–accent); opacity: 0; transition: opacity .3s; }
+.sk-fill  { height: 100%; border-radius: 10px; background: linear-gradient(90deg, var(–accent3), var(–accent2)); width: 0; transition: width 1.1s cubic-bezier(.22,1,.36,1); position: relative; }
+.sk-fill::after { content:’’; position: absolute; right: -1px; top: 50%; transform: translateY(-50%); width: 11px; height: 11px; border-radius: 50%; background: var(–accent2); border: 2px solid var(–surface); box-shadow: 0 0 0 2px var(–accent); opacity: 0; transition: opacity .3s; }
 .sk-track:hover .sk-fill::after { opacity: 1; }
 
-/* ─── DONUTS ─── */
-.donuts-wrap { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 12px; }
-.donut-item { display: flex; flex-direction: column; align-items: center; gap: 7px; cursor: pointer; transition: transform .2s; }
+/* ── DONUTS ── */
+.donuts-wrap { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 10px; }
+.donut-item { display: flex; flex-direction: column; align-items: center; gap: 6px; cursor: pointer; transition: transform .2s; }
 .donut-item:hover { transform: translateY(-4px); }
 .donut-svg { transform: rotate(-90deg); }
-.d-bg { fill: none; stroke: var(–surface2); stroke-width: 6; }
-.d-ring { fill: none; stroke-width: 6; stroke-linecap: round; stroke-dasharray: 0 100; transition: stroke-dasharray 1.3s cubic-bezier(.22,1,.36,1); }
-.donut-yrs { font-family: ‘Lora’, serif; font-size: 18px; color: var(–ink); }
-.donut-lbl { font-size: 11px; font-weight: 600; color: var(–muted); text-align: center; line-height: 1.3; max-width: 70px; }
+.d-bg   { fill: none; stroke: var(–surface2); stroke-width: 6; }
+.d-ring { fill: none; stroke-width: 6; stroke-linecap: round; stroke-dasharray: 0 100; transition: stroke-dasharray 1.3s cubic-bezier(.22,1,.36,1), stroke .4s; }
+.donut-yrs { font-family: ‘Lora’, serif; font-size: 17px; color: var(–ink); }
+.donut-lbl { font-size: 10.5px; font-weight: 600; color: var(–muted); text-align: center; line-height: 1.3; max-width: 68px; }
 
-/* ─── GLOBE ─── */
-.globe-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.geo-card { background: var(–surface2); border-radius: 12px; padding: 16px; display: flex; align-items: center; gap: 12px; border: 1px solid transparent; transition: border-color .2s, transform .2s, background .2s; cursor: default; }
-.geo-card:hover { border-color: var(–accent); background: #fff; transform: translateY(-2px); }
-.geo-flag { font-size: 28px; flex-shrink: 0; }
-.geo-name { font-weight: 700; font-size: 13.5px; color: var(–ink); }
+/* ── GLOBE ── */
+.globe-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
+.geo-card { background: var(–surface2); border-radius: 11px; padding: 14px; display: flex; align-items: center; gap: 11px; border: 1px solid transparent; transition: border-color .2s, transform .2s, background .2s; cursor: default; }
+.geo-card:hover { border-color: var(–accent); background: var(–surface); transform: translateY(-2px); }
+.geo-flag { font-size: 26px; flex-shrink: 0; }
+.geo-name { font-weight: 700; font-size: 13px; color: var(–ink); }
 .geo-role { font-size: 11px; color: var(–muted); margin-top: 2px; line-height: 1.4; }
 
-/* ─── CERTS ─── */
-.cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.cert-item { display: flex; align-items: center; gap: 10px; background: var(–surface2); border-radius: 10px; padding: 10px 14px; border: 1px solid transparent; transition: border-color .2s, background .2s; cursor: default; }
-.cert-item:hover { border-color: var(–accent); background: #fff; }
-.cert-ico { width: 30px; height: 30px; border-radius: 8px; background: var(–accent); color: #fff; font-size: 10px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; letter-spacing: -.5px; }
+/* ── CERTS ── */
+.cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+.cert-item { display: flex; align-items: center; gap: 9px; background: var(–surface2); border-radius: 10px; padding: 9px 13px; border: 1px solid transparent; transition: border-color .2s, background .2s; cursor: default; }
+.cert-item:hover { border-color: var(–accent); background: var(–surface); }
+.cert-ico { width: 28px; height: 28px; border-radius: 8px; background: var(–accent); color: var(–bg); font-size: 9.5px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; letter-spacing: -.5px; transition: background .4s; }
 .cert-ico.warm { background: var(–warm); }
-.cert-name { font-size: 12px; font-weight: 600; color: var(–ink2); line-height: 1.3; }
-.cert-org { font-size: 10.5px; color: var(–muted); margin-top: 1px; }
+.cert-name { font-size: 11.5px; font-weight: 600; color: var(–ink2); line-height: 1.3; }
+.cert-org  { font-size: 10px; color: var(–muted); margin-top: 1px; }
 
-/* ─── EDU ─── */
-.edu-item { padding: 18px 0; border-bottom: 1px solid var(–border); }
+/* ── EDUCATION ── */
+.edu-item { padding: 16px 0; border-bottom: 1px solid var(–border); }
 .edu-item:last-child { border-bottom: none; padding-bottom: 0; }
-.edu-deg { font-family: ‘Lora’, serif; font-size: 16px; color: var(–ink); }
-.edu-school { font-size: 13px; color: var(–muted); margin-top: 3px; }
-.edu-note { font-size: 11.5px; color: var(–accent); margin-top: 4px; font-weight: 600; }
-.edu-yr { font-size: 11px; color: var(–muted); margin-top: 6px; letter-spacing: 1px; }
+.edu-deg    { font-family: ‘Lora’, serif; font-size: 15px; color: var(–ink); }
+.edu-school { font-size: 12.5px; color: var(–muted); margin-top: 3px; }
+.edu-note   { font-size: 11px; color: var(–accent); margin-top: 4px; font-weight: 700; }
+.edu-yr     { font-size: 11px; color: var(–muted); margin-top: 5px; letter-spacing: 1px; }
 
-/* ─── SCROLL ANIMATIONS ─── */
-.fade-up { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+/* ── SCROLL ANIM ── */
+.fade-up { opacity: 0; transform: translateY(16px); transition: opacity .5s ease, transform .5s ease; }
 .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-/* ─── FOOTER ─── */
-footer { text-align: center; padding: 20px; font-size: 11px; color: var(–muted); letter-spacing: 1.5px; text-transform: uppercase; }
+/* ── MATRIX scanline overlay ── */
+[data-theme=“matrix”] body::before,
+[data-theme=“mainframe”] body::before {
+content:’’;
+position: fixed; inset: 0;
+background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,.04) 2px, rgba(0,0,0,.04) 4px);
+pointer-events: none; z-index: 0;
+}
+
+footer { text-align: center; padding: 18px; font-size: 10.5px; color: var(–muted); letter-spacing: 1.5px; text-transform: uppercase; }
 
 @media(max-width:780px){
-.hero { grid-template-columns: 1fr; padding: 36px 24px; }
-.hero-pills { flex-direction: row; flex-wrap: wrap; align-items: flex-start; }
-.page { padding: 24px 16px 40px; }
-.row-2,.row-3,.row-13 { grid-template-columns: 1fr; }
+.hero { grid-template-columns: 1fr; padding: 32px 20px; }
+.hero-pills { flex-direction: row; flex-wrap: wrap; }
+.page { padding: 20px 16px 40px; }
+.row-2,.row-13 { grid-template-columns: 1fr; }
 .cert-grid { grid-template-columns: 1fr; }
-.proj-card { flex: 0 0 270px; }
+.proj-card { flex: 0 0 265px; }
+.theme-bar { flex-wrap: wrap; justify-content: center; padding: 8px 12px; }
 }
 </style>
 
@@ -360,7 +512,19 @@ footer { text-align: center; padding: 20px; font-size: 11px; color: var(–muted
 
 <div class="tooltip" id="tip"></div>
 
-<!-- ─── HERO ─── -->
+<!-- ── THEME SWITCHER ── -->
+
+<div class="theme-bar">
+  <span class="theme-label">Theme</span>
+  <button class="theme-btn active" data-t="royal">Royal Blue</button>
+  <button class="theme-btn" data-t="maroon">Maroon</button>
+  <button class="theme-btn" data-t="aqua">Aqua</button>
+  <button class="theme-btn" data-t="electronic">Electronic</button>
+  <button class="theme-btn" data-t="matrix">Matrix</button>
+  <button class="theme-btn" data-t="mainframe">Mainframe</button>
+</div>
+
+<!-- ── HERO ── -->
 
 <div class="hero">
   <div>
@@ -376,138 +540,125 @@ footer { text-align: center; padding: 20px; font-size: 11px; color: var(–muted
   <div class="hero-pills">
     <div class="pill"><div class="n">19+</div><div class="l">Years Exp.</div></div>
     <div class="pill"><div class="n">6</div><div class="l">Companies</div></div>
-    <div class="pill"><div class="n">4</div><div class="l">Countries</div></div>
+    <div class="pill"><div class="n">4+</div><div class="l">Countries</div></div>
   </div>
 </div>
 
 <div class="page">
 
-  <!-- ─── ROW 1: Summary ─── -->
+  <!-- ROW 1: Summary + Word Cloud -->
 
   <div class="row row-2">
-    <div class="card fade-up">
-      <div class="chip">About</div>
-      <p class="summary-body">
-        Business Analytics Consultant specializing in helping organizations establish a <strong>reliable single source of truth</strong>. Proven track record leading global BI programs through <strong>rapid prototyping</strong> and real-world use cases — bridging business stakeholders with SAP and Non-SAP analytics platforms.
-      </p>
-      <div class="tag-row">
-        <span class="tag hi">SAP Expert</span>
-        <span class="tag">Solution Architect</span>
-        <span class="tag">Project Manager</span>
-        <span class="tag">Team Lead</span>
-        <span class="tag">Pre-Sales</span>
-        <span class="tag">IFRS 17</span>
-      </div>
-    </div>
 
 ```
-<!-- ─── IMPACT: WORD CLOUD ─── -->
-<div class="card fade-up" style="animation-delay:.1s">
-  <div class="chip">Impact · Activity Cloud</div>
-  <div class="card-h" style="margin-bottom:12px;">Current Role Focus</div>
-
-  <div class="cloud-legend">
-    <div class="legend-dot"><span style="background:var(--accent)"></span>SAP Platform</div>
-    <div class="legend-dot"><span style="background:var(--blue)"></span>Azure / Modern</div>
-    <div class="legend-dot"><span style="background:var(--warm)"></span>Domain</div>
-    <div class="legend-dot"><span style="background:var(--purple)"></span>Practice</div>
+<div class="card fade-up">
+  <div class="chip">About</div>
+  <p class="summary-body">
+    Business Analytics Consultant with <strong>19+ years</strong> specializing in helping organizations establish a <strong>reliable single source of truth</strong>. Proven track record leading global BI programs through <strong>rapid prototyping</strong> and real-world use cases — bridging business stakeholders with SAP and Non-SAP analytics platforms across insurance, pharma, life science, and FMCG industries.
+  </p>
+  <div class="tag-row">
+    <span class="tag hi">SAP Expert</span>
+    <span class="tag">Solution Architect</span>
+    <span class="tag">Project Manager</span>
+    <span class="tag">Team Lead</span>
+    <span class="tag">Pre-Sales</span>
+    <span class="tag">IFRS 17</span>
+    <span class="tag">Azure Databricks</span>
   </div>
+</div>
 
+<div class="card fade-up" style="animation-delay:.1s">
+  <div class="chip">Activity Cloud · Current Role</div>
+  <div class="cloud-legend" id="cloudLegend"></div>
   <div class="word-cloud" id="wordCloud"></div>
 </div>
 ```
 
   </div>
 
-  <!-- ─── ROW 2: Project Cards (full width) ─── -->
+  <!-- ROW 2: Project Cards -->
 
-  <div class="row" style="margin-bottom:24px;">
-    <div class="card card-span fade-up" style="animation-delay:.18s; padding-bottom:20px;">
+  <div class="row">
+    <div class="card card-span fade-up" style="animation-delay:.16s">
       <div class="chip">Project Highlights</div>
-      <div class="card-h" style="margin-bottom:16px;">Recent Engagements — scroll to explore →</div>
+      <div class="card-h" style="margin-bottom:14px;">Key Engagements &nbsp;—&nbsp; <span style="font-family:'Nunito Sans',sans-serif;font-size:13px;font-weight:400;color:var(--muted)">scroll to explore →</span></div>
+      <div class="projects-scroll-wrap">
+        <div class="projects-scroll">
 
 ```
-  <div class="projects-scroll-wrap">
-    <div class="projects-scroll" id="projectScroll">
-
-      <!-- CARD 1: Capgemini DE -->
-      <div class="proj-card c-sage">
-        <div class="proj-header">
-          <div class="proj-client">Life Science Program<br><span style="font-size:13px;font-family:'Nunito Sans',sans-serif;font-weight:700;color:var(--accent2);">Capgemini, Germany</span></div>
-          <div class="proj-role">Managing Application Consultant</div>
+      <!-- CARD 1 -->
+      <div class="proj-card c1">
+        <div>
+          <div class="proj-client">Life Science Program</div>
+          <div class="proj-co">Capgemini, Germany</div>
+          <div class="proj-role">Managing Application Consultant · Contributor, Solution Designer & Developer</div>
           <span class="proj-period">Oct 2021 – Present · 3.5 yrs</span>
         </div>
-        <div class="util-wrap"
-          data-tip="<strong>85% Utilisation</strong>Average across development, data architecture and operation excellence activities over 3.5 years.">
-          <div class="util-header">
-            <span>Utilisation</span>
-            <span class="util-num">85%</span>
-          </div>
+        <div data-tip="<strong>85% Avg. Utilisation</strong>Split across development (Azure Databricks transition), data architecture and operation excellence activities.">
+          <div class="util-header"><span>Avg. Utilisation</span><span>85%</span></div>
           <div class="util-track"><div class="util-fill" data-pct="85"></div></div>
         </div>
         <ul class="proj-bullets">
-          <li>3 yrs: Demand Planning Forecasting & SAP Production Planning data models in operation</li>
-          <li>2.5 yrs: Azure Databricks development — SAP data model transition to Azure DB artifacts</li>
-          <li>Multi-vendor quality assurance via SAP Standard Data Source architectural artifacts</li>
-          <li>Cost optimization through Data Archive and information processing excellence</li>
+          <li>3 yrs: Demand Planning Forecasting & SAP PP data models in live operation</li>
+          <li>2.5 yrs: SAP-to-Azure Databricks data model transition and unified artifact build</li>
+          <li>Architectural & technical artifacts for SAP Standard Data Sources aligned to customer's unified reporting vision</li>
+          <li>Data Archive & information processing cost optimization for operation excellence</li>
+          <li>Multi-vendor coordination ensuring quality and business fairness</li>
         </ul>
         <div class="proj-tags">
           <span class="proj-tag">Azure Databricks</span>
           <span class="proj-tag">SAP BW/4HANA</span>
           <span class="proj-tag">Demand Planning</span>
-          <span class="proj-tag">PP Data Models</span>
+          <span class="proj-tag">PP Models</span>
           <span class="proj-tag">Multi-Vendor</span>
+          <span class="proj-tag">Data Archive</span>
         </div>
       </div>
 
-      <!-- CARD 2: Shiseido Japan -->
-      <div class="proj-card c-purple">
-        <div class="proj-header">
-          <div class="proj-client">Global HR Analytics<br><span style="font-size:13px;font-family:'Nunito Sans',sans-serif;font-weight:700;color:var(--purple);">Shiseido Japan</span></div>
+      <!-- CARD 2 -->
+      <div class="proj-card c2">
+        <div>
+          <div class="proj-client">Global HR Analytics</div>
+          <div class="proj-co">Shiseido Japan</div>
           <div class="proj-role">SAP Analytics Cloud Consultant</div>
-          <span class="proj-period">Apr 2021 – Jul 2021 · 4 months</span>
+          <span class="proj-period">Apr 2021 – Jul 2021 · Short Engagement</span>
         </div>
-        <div class="util-wrap"
-          data-tip="<strong>100% Utilisation</strong>Short, focused engagement. Full-time SAP Analytics Cloud implementation for SAP SuccessFactors HR data.">
-          <div class="util-header">
-            <span>Utilisation</span>
-            <span class="util-num">100%</span>
-          </div>
+        <div data-tip="<strong>100% Utilisation</strong>Focused short engagement — full-time SAP Analytics Cloud implementation for SAP SuccessFactors HR data at Shiseido Japan.">
+          <div class="util-header"><span>Utilisation</span><span>100%</span></div>
           <div class="util-track"><div class="util-fill" data-pct="100"></div></div>
         </div>
         <ul class="proj-bullets">
           <li>Implemented Global HR Analytics on SAP Analytics Cloud for SAP SuccessFactors</li>
-          <li>Scope: Headcount & FTE Utilisation across multi-dimensional attributes</li>
-          <li>Demographic → Organisational → Sensitive data hierarchy modelling</li>
+          <li>Scope: Headcount & FTE Utilisation on multi-dimensional attributes</li>
+          <li>Hierarchy: Demographic → Organisational → Sensitive Information modelling</li>
         </ul>
         <div class="proj-tags">
           <span class="proj-tag">SAP Analytics Cloud</span>
           <span class="proj-tag">SuccessFactors</span>
           <span class="proj-tag">HR Analytics</span>
           <span class="proj-tag">FTE Utilisation</span>
+          <span class="proj-tag">Headcount</span>
         </div>
       </div>
 
-      <!-- CARD 3: AIA Group -->
-      <div class="proj-card c-blue">
-        <div class="proj-header">
-          <div class="proj-client">Management Reporting 2.0<br><span style="font-size:13px;font-family:'Nunito Sans',sans-serif;font-weight:700;color:var(--blue);">AIA Group, Hong Kong</span></div>
-          <div class="proj-role">External Consultant — Insurance</div>
+      <!-- CARD 3 -->
+      <div class="proj-card c3">
+        <div>
+          <div class="proj-client">Management Reporting 2.0</div>
+          <div class="proj-co">AIA Group, Hong Kong</div>
+          <div class="proj-role">External Consultant · Insurance Industry</div>
           <span class="proj-period">Feb 2019 – Feb 2021 · 2 yrs</span>
         </div>
-        <div class="util-wrap"
-          data-tip="<strong>90% Utilisation</strong>End-to-end ownership across requirement, design, build, and deployment phases for executive sales reporting.">
-          <div class="util-header">
-            <span>Utilisation</span>
-            <span class="util-num">90%</span>
-          </div>
+        <div data-tip="<strong>90% Utilisation</strong>End-to-end ownership from requirements through to live deployment — security design, architecture, and dashboard build.">
+          <div class="util-header"><span>Utilisation</span><span>90%</span></div>
           <div class="util-track"><div class="util-fill" data-pct="90"></div></div>
         </div>
         <ul class="proj-bullets">
-          <li>22+ prototypes → final Daily Sales Dashboard for Group & Regional Executives</li>
+          <li>22+ prototypes → Daily Sales Dashboard for Group & Regional Executives</li>
           <li>BW on HANA LSA++ models with MTD / QTD / YTD working-day logic</li>
-          <li>SAP BO 4.2 architecture, SAML 2.0 auth, mobile optimisation (iOS)</li>
-          <li>IFRS 17, OBS & Reconciliation Reporting; Sales Forecasting via SAP AC</li>
+          <li>SAP BO 4.2 architecture, SAML 2.0 auth, mobile iOS optimisation</li>
+          <li>IFRS 17, OBS Reporting & Reconciliation; Sales Forecasting via SAP AC</li>
+          <li>Cross-functional delivery with HK, Malaysia, UK, Germany & India teams</li>
         </ul>
         <div class="proj-tags">
           <span class="proj-tag">SAP BW on HANA</span>
@@ -515,29 +666,27 @@ footer { text-align: center; padding: 20px; font-size: 11px; color: var(–muted
           <span class="proj-tag">IFRS 17</span>
           <span class="proj-tag">SAML 2.0</span>
           <span class="proj-tag">SAP AC</span>
+          <span class="proj-tag">LSA++</span>
         </div>
       </div>
 
-      <!-- CARD 4: Takeda -->
-      <div class="proj-card c-warm">
-        <div class="proj-header">
-          <div class="proj-client">Global BI Program<br><span style="font-size:13px;font-family:'Nunito Sans',sans-serif;font-weight:700;color:var(--warm);">Takeda – Capgemini</span></div>
-          <div class="proj-role">Project Lead / BI Manager — Pharma</div>
+      <!-- CARD 4 -->
+      <div class="proj-card c4">
+        <div>
+          <div class="proj-client">Global BI Program</div>
+          <div class="proj-co">Takeda – Capgemini</div>
+          <div class="proj-role">Project Lead / BI Manager · Pharma Industry</div>
           <span class="proj-period">Feb 2017 – Nov 2018 · 2 yrs</span>
         </div>
-        <div class="util-wrap"
-          data-tip="<strong>95% Utilisation</strong>Led a 12-member global BW team simultaneously managing delivery, architecture and business adoption across 4 geographies.">
-          <div class="util-header">
-            <span>Utilisation</span>
-            <span class="util-num">95%</span>
-          </div>
+        <div data-tip="<strong>95% Utilisation</strong>Led 12-member BW build team across 4 geographies while managing architecture, delivery and business adoption simultaneously.">
+          <div class="util-header"><span>Utilisation</span><span>95%</span></div>
           <div class="util-track"><div class="util-fill" data-pct="95"></div></div>
         </div>
         <ul class="proj-bullets">
-          <li>Led 12-member BW team across Austria, Germany, Japan, US & India</li>
-          <li>22 KPIs + 3 dashboards for 250+ users: Supply Chain, Manufacturing, Quality</li>
-          <li>SAP BW on HANA data warehouse design + security model</li>
-          <li>KPI storytelling handbook for business adoption</li>
+          <li>Led 12-member BW team: Austria, Germany, Japan, US & India</li>
+          <li>22 KPIs + 3 dashboards for 250+ users: Supply Chain, Manufacturing, Quality & People</li>
+          <li>SAP BW on HANA data warehouse design + role-based security model</li>
+          <li>KPI storytelling handbook driving business adoption</li>
         </ul>
         <div class="proj-tags">
           <span class="proj-tag">SAP BW on HANA</span>
@@ -545,30 +694,31 @@ footer { text-align: center; padding: 20px; font-size: 11px; color: var(–muted
           <span class="proj-tag">Supply Chain</span>
           <span class="proj-tag">22 KPIs</span>
           <span class="proj-tag">250+ Users</span>
+          <span class="proj-tag">Power BI</span>
         </div>
       </div>
 
     </div>
-    <div class="scroll-hint">›</div>
+    <div class="scroll-arrow">›</div>
   </div>
 </div>
 ```
 
   </div>
 
-  <!-- ─── ROW 3: Timeline + Skills ─── -->
+  <!-- ROW 3: Timeline + Skills -->
 
   <div class="row row-13">
-    <div class="card fade-up" style="animation-delay:.24s">
+    <div class="card fade-up" style="animation-delay:.22s">
       <div class="chip">Career Journey</div>
       <div class="card-h">19 Years of Progression</div>
       <div class="tl">
         <div class="tl-item now">
           <div class="tl-dot"></div>
-          <div class="tl-period">2021 – Present</div>
+          <div class="tl-period">Oct 2021 – Present</div>
           <div class="tl-role">Managing Application Consultant</div>
-          <div class="tl-co">Capgemini, Germany</div>
-          <span class="tl-badge">SAP BI · Databricks · Life Science</span>
+          <div class="tl-co">Capgemini, Germany — Life Science Program</div>
+          <span class="tl-badge">Azure Databricks · SAP BI · Multi-Vendor</span>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
@@ -579,28 +729,28 @@ footer { text-align: center; padding: 20px; font-size: 11px; color: var(–muted
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-period">2019 – 2021</div>
+          <div class="tl-period">Feb 2019 – Feb 2021</div>
           <div class="tl-role">External Consultant</div>
           <div class="tl-co">AIA Group, Hong Kong</div>
           <span class="tl-badge">Insurance · IFRS 17 · SAP AC</span>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-period">2013 – 2019</div>
+          <div class="tl-period">May 2013 – Jan 2019</div>
           <div class="tl-role">Manager / Senior BI Consultant</div>
           <div class="tl-co">Capgemini India — Takeda · Cathay Pacific · Volvo · Smiths</div>
-          <span class="tl-badge">Pharma · Airlines · Automotive</span>
+          <span class="tl-badge">Pharma · Airlines · Automotive · Defence</span>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-period">2010 – 2013</div>
-          <div class="tl-role">SAP BI Consultant</div>
+          <div class="tl-period">Dec 2010 – May 2013</div>
+          <div class="tl-role">SAP BI Consultant / SME</div>
           <div class="tl-co">HCL Infosystems · Reliance Industries</div>
           <span class="tl-badge">SAP BW · BO XI · QlikView</span>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-period">2006 – 2010</div>
+          <div class="tl-period">Jun 2006 – Dec 2010</div>
           <div class="tl-role">Software Engineer → Senior SME</div>
           <div class="tl-co">Accenture & AMDOCS, India</div>
           <span class="tl-badge">MS BI · SSIS · ETL · Teradata</span>
@@ -609,7 +759,7 @@ footer { text-align: center; padding: 20px; font-size: 11px; color: var(–muted
     </div>
 
 ```
-<div class="card fade-up" style="animation-delay:.3s">
+<div class="card fade-up" style="animation-delay:.28s">
   <div class="chip">Technical Skills</div>
   <div class="card-h">Proficiency</div>
   <div class="skill-list" id="skillList"></div>
@@ -618,35 +768,35 @@ footer { text-align: center; padding: 20px; font-size: 11px; color: var(–muted
 
   </div>
 
-  <!-- ─── ROW 4: Domains + Globe ─── -->
+  <!-- ROW 4: Domains + Globe -->
 
   <div class="row row-2">
-    <div class="card fade-up" style="animation-delay:.34s">
+    <div class="card fade-up" style="animation-delay:.32s">
       <div class="chip">Industry Experience</div>
       <div class="card-h">Domain Breakdown</div>
       <div class="donuts-wrap" id="donutsWrap"></div>
     </div>
 
 ```
-<div class="card fade-up" style="animation-delay:.38s">
+<div class="card fade-up" style="animation-delay:.36s">
   <div class="chip">Global Footprint</div>
   <div class="card-h">Customer-Facing Roles</div>
   <div class="globe-grid">
-    <div class="geo-card" data-tip="<strong>Germany 🇩🇪</strong>Capgemini (2021–Now) — Life Science program, Azure Databricks & SAP BI multi-vendor delivery.">
+    <div class="geo-card" data-tip="<strong>Germany 🇩🇪</strong>Capgemini 2021–Now — Life Science, Azure Databricks & SAP BI multi-vendor delivery program.">
       <div class="geo-flag">🇩🇪</div>
       <div><div class="geo-name">Germany</div><div class="geo-role">Capgemini · 2021–Now</div></div>
     </div>
-    <div class="geo-card" data-tip="<strong>Japan 🇯🇵</strong>Shiseido (Apr–Jul 2021) — SAP Analytics Cloud for Global HR Analytics on SuccessFactors.">
+    <div class="geo-card" data-tip="<strong>Japan 🇯🇵</strong>Shiseido Apr–Jul 2021 — SAP Analytics Cloud, Global HR Analytics on SuccessFactors.">
       <div class="geo-flag">🇯🇵</div>
       <div><div class="geo-name">Japan</div><div class="geo-role">Shiseido · 2021</div></div>
     </div>
-    <div class="geo-card" data-tip="<strong>Hong Kong 🇭🇰</strong>AIA Group (2019–21) & Cathay Pacific (2016–17). Insurance reporting, IFRS 17, airline revenue analytics.">
+    <div class="geo-card" data-tip="<strong>Hong Kong 🇭🇰</strong>AIA Group (2019–21) & Cathay Pacific (2016–17) — insurance & airline revenue analytics.">
       <div class="geo-flag">🇭🇰</div>
-      <div><div class="geo-name">Hong Kong</div><div class="geo-role">AIA Group · Cathay Pacific</div></div>
+      <div><div class="geo-name">Hong Kong</div><div class="geo-role">AIA · Cathay Pacific</div></div>
     </div>
-    <div class="geo-card" data-tip="<strong>United Kingdom 🇬🇧</strong>Smiths Detection Financial Transformation & Unilever Europe CRM4Retail Reporting.">
+    <div class="geo-card" data-tip="<strong>United Kingdom 🇬🇧</strong>Smiths Detection Financial Transformation (2014–15) & Unilever Europe CRM4Retail (2007–10).">
       <div class="geo-flag">🇬🇧</div>
-      <div><div class="geo-name">United Kingdom</div><div class="geo-role">Smiths Detection · Unilever</div></div>
+      <div><div class="geo-name">United Kingdom</div><div class="geo-role">Smiths · Unilever</div></div>
     </div>
   </div>
 </div>
@@ -654,18 +804,18 @@ footer { text-align: center; padding: 20px; font-size: 11px; color: var(–muted
 
   </div>
 
-  <!-- ─── ROW 5: Certs + Education ─── -->
+  <!-- ROW 5: Certs + Education -->
 
   <div class="row row-2">
-    <div class="card fade-up" style="animation-delay:.42s">
+    <div class="card fade-up" style="animation-delay:.4s">
       <div class="chip">Certifications</div>
       <div class="card-h">Continuous Learning</div>
       <div class="cert-grid">
-        <div class="cert-item" data-tip="<strong>PRINCE2 Practitioner</strong>Project management methodology. License: 03512857-01-LQ5N. APMG International, 2015.">
+        <div class="cert-item" data-tip="<strong>PRINCE2 Practitioner</strong>License: 03512857-01-LQ5N. Project management methodology. APMG International, 2015.">
           <div class="cert-ico">P2</div>
           <div><div class="cert-name">PRINCE2 Practitioner</div><div class="cert-org">APMG · 2015</div></div>
         </div>
-        <div class="cert-item" data-tip="<strong>SAP BW on HANA</strong>Verified at open.sap.com. Certified SAP Business Warehouse powered by SAP HANA. 2014.">
+        <div class="cert-item" data-tip="<strong>SAP BW on HANA</strong>Verified at open.sap.com. SAP Business Warehouse powered by SAP HANA. 2014.">
           <div class="cert-ico">SAP</div>
           <div><div class="cert-name">SAP BW on HANA</div><div class="cert-org">SAP · 2014</div></div>
         </div>
@@ -673,17 +823,17 @@ footer { text-align: center; padding: 20px; font-size: 11px; color: var(–muted
           <div class="cert-ico warm">IIT</div>
           <div><div class="cert-name">Adv. Business Analytics</div><div class="cert-org">IIT Kharagpur · 2015</div></div>
         </div>
-        <div class="cert-item" data-tip="<strong>The Analytics Edge</strong>Certificate of Achievement from edX / MITx. Data analysis using R. 2015.">
+        <div class="cert-item" data-tip="<strong>The Analytics Edge</strong>Certificate of Achievement. edX / MITx. Data analysis using R. 2015.">
           <div class="cert-ico warm">MIT</div>
           <div><div class="cert-name">The Analytics Edge</div><div class="cert-org">edX MIT · 2015</div></div>
         </div>
-        <div class="cert-item" data-tip="<strong>Supply Chain Analytics</strong>MITx — demand forecasting, inventory optimisation and analytics. 2017.">
+        <div class="cert-item" data-tip="<strong>Supply Chain Analytics</strong>MITx — demand forecasting, inventory optimisation and analytics modelling. 2017.">
           <div class="cert-ico warm">MIT</div>
           <div><div class="cert-name">Supply Chain Analytics</div><div class="cert-org">MITx · 2017</div></div>
         </div>
-        <div class="cert-item" data-tip="<strong>SAP S/4HANA Cloud</strong>SAP open.sap.com verified course. Intelligent ERP capabilities. 2018.">
+        <div class="cert-item" data-tip="<strong>SAP S/4HANA Cloud</strong>SAP open.sap.com verified. Intelligent ERP capabilities and cloud transitions. 2018.">
           <div class="cert-ico">SAP</div>
-          <div><div class="cert-name">SAP S/4HANA Cloud ERP</div><div class="cert-org">SAP · 2018</div></div>
+          <div><div class="cert-name">SAP S/4HANA Cloud</div><div class="cert-org">SAP · 2018</div></div>
         </div>
         <div class="cert-item" data-tip="<strong>FinTech & Risk Management</strong>Corporate Finance Institute (CFI). Financial technology and risk frameworks.">
           <div class="cert-ico">CFI</div>
@@ -697,7 +847,7 @@ footer { text-align: center; padding: 20px; font-size: 11px; color: var(–muted
     </div>
 
 ```
-<div class="card fade-up" style="animation-delay:.46s">
+<div class="card fade-up" style="animation-delay:.44s">
   <div class="chip">Education</div>
   <div class="card-h">Academic Background</div>
   <div class="edu-item">
@@ -712,9 +862,9 @@ footer { text-align: center; padding: 20px; font-size: 11px; color: var(–muted
     <div class="edu-note">First Class Degree</div>
     <div class="edu-yr">2002 – 2006</div>
   </div>
-  <div style="margin-top:20px; padding-top:18px; border-top:1px solid var(--border);">
-    <div class="chip">SAP Product Suite</div>
-    <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:10px;">
+  <div style="margin-top:18px;padding-top:16px;border-top:1px solid var(--border);">
+    <div class="chip" style="margin-bottom:10px;">SAP Product Suite</div>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;">
       <span class="tag">BusinessObjects 4.x</span>
       <span class="tag">BW/4HANA 7.5</span>
       <span class="tag">Analytics Cloud</span>
@@ -736,154 +886,257 @@ footer { text-align: center; padding: 20px; font-size: 11px; color: var(–muted
 <footer>Subhasish Sahu &nbsp;·&nbsp; SAP Business Analytics Practitioner &nbsp;·&nbsp; Hong Kong</footer>
 
 <script>
-// ── TOOLTIP ──────────────────────────────────────────────
+// ══════════════════════════════════════════
+// TOOLTIP
+// ══════════════════════════════════════════
 const tip = document.getElementById('tip');
-function showTip(e, html) { tip.innerHTML = html; tip.classList.add('show'); moveTip(e); }
-function moveTip(e) {
-  const tw = tip.offsetWidth, th = tip.offsetHeight;
-  const vw = window.innerWidth, vh = window.innerHeight;
-  let l = e.clientX + 14, t = e.clientY - 10;
-  if (l + tw > vw - 10) l = e.clientX - tw - 14;
-  if (t + th > vh - 10) t = vh - th - 10;
-  tip.style.left = l + 'px'; tip.style.top = t + 'px';
+function showTip(e,h){tip.innerHTML=h;tip.classList.add('show');moveTip(e);}
+function moveTip(e){
+  const tw=tip.offsetWidth,th=tip.offsetHeight,vw=window.innerWidth,vh=window.innerHeight;
+  let l=e.clientX+14,t=e.clientY-10;
+  if(l+tw>vw-10) l=e.clientX-tw-14;
+  if(t+th>vh-10) t=vh-th-10;
+  tip.style.left=l+'px'; tip.style.top=t+'px';
 }
-function hideTip() { tip.classList.remove('show'); }
-function bindTip(el, html) {
-  el.addEventListener('mouseenter', e => showTip(e, html));
-  el.addEventListener('mousemove', moveTip);
-  el.addEventListener('mouseleave', hideTip);
+function hideTip(){tip.classList.remove('show');}
+function bindTip(el,html){
+  el.addEventListener('mouseenter',e=>showTip(e,html));
+  el.addEventListener('mousemove',moveTip);
+  el.addEventListener('mouseleave',hideTip);
 }
-document.querySelectorAll('[data-tip]').forEach(el => bindTip(el, el.dataset.tip));
+document.querySelectorAll('[data-tip]').forEach(el=>bindTip(el,el.dataset.tip));
 
-// ── WORD CLOUD ────────────────────────────────────────────
+// ══════════════════════════════════════════
+// THEME SWITCHER
+// ══════════════════════════════════════════
+const root = document.documentElement;
+const btns = document.querySelectorAll('.theme-btn');
+btns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const t = btn.dataset.t;
+    root.setAttribute('data-theme', t);
+    btns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    // Re-colour word cloud on theme change
+    updateWordCloudColors();
+    // Re-colour donut rings
+    updateDonutColors();
+    // Persist
+    localStorage.setItem('theme', t);
+  });
+});
+// Restore saved theme
+const saved = localStorage.getItem('theme');
+if(saved){ root.setAttribute('data-theme',saved); btns.forEach(b=>{ b.classList.toggle('active', b.dataset.t===saved); }); }
+
+// ══════════════════════════════════════════
+// WORD CLOUD
+// ══════════════════════════════════════════
 const words = [
   // SAP Platform
-  { w:'BW/4HANA',          size:'xl', cat:'sap',      tip:'SAP BW/4HANA — Core data warehouse platform for enterprise reporting and LSA++ architecture.' },
-  { w:'LSA++ Architecture', size:'lg', cat:'sap',      tip:'Layered Scalable Architecture — SAP best-practice design pattern for BW modelling.' },
-  { w:'BusinessObjects',   size:'lg', cat:'sap',      tip:'SAP BusinessObjects 4.x — Universe design, Web Intelligence, BI LaunchPad, SAML 2.0.' },
-  { w:'SAP Analytics Cloud',size:'lg', cat:'sap',      tip:'SAP Analytics Cloud — Dashboard, Planning & HR Analytics for AIA HK and Shiseido JP.' },
-  { w:'HANA Views',        size:'md', cat:'sap',      tip:'SAP HANA Calculation Views for MTD/QTD/YTD run-rate logic and performance-optimised reporting.' },
-  { w:'Lumira Designer',   size:'md', cat:'sap',      tip:'SAP Lumira Designer — BAL Script & CSS Script for enterprise-grade analysis applications.' },
-  { w:'SAP BPC',           size:'sm', cat:'sap',      tip:'SAP Business Planning and Consolidation — used as source for VoNB & ANP at AIA.' },
-  { w:'SuccessFactors',    size:'sm', cat:'sap',      tip:'SAP SuccessFactors integration for Global HR Analytics at Shiseido Japan.' },
+  {w:'BW/4HANA',            sz:'xl', cat:'sap',      tip:'Core data warehouse platform — expert in LSA++ architecture, Process Chains, Transport, Performance Tuning.'},
+  {w:'LSA++ Architecture',  sz:'lg', cat:'sap',      tip:'Layered Scalable Architecture — SAP best-practice BW modelling pattern applied across 5+ enterprise programs.'},
+  {w:'BusinessObjects 4.x', sz:'lg', cat:'sap',      tip:'Universe Design, IDT, Web Intelligence, BI LaunchPad — expert in security, SAML 2.0 & SSO.'},
+  {w:'SAP Analytics Cloud', sz:'lg', cat:'sap',      tip:'Dashboards, Planning, HR Analytics — deployed at AIA Group HK and Shiseido Japan.'},
+  {w:'HANA Views',          sz:'md', cat:'sap',      tip:'SAP HANA Calculation Views for MTD/QTD/YTD working-day logic and performance-optimised models.'},
+  {w:'Lumira Designer',     sz:'md', cat:'sap',      tip:'Expert in Analysis Application design using BAL Script & CSS Script for enterprise dashboards.'},
+  {w:'SAP BPC',             sz:'sm', cat:'sap',      tip:'SAP Business Planning & Consolidation — source for VoNB & ANP sales metrics at AIA.'},
+  {w:'SuccessFactors',      sz:'sm', cat:'sap',      tip:'SAP SuccessFactors integration for Global HR Analytics headcount & FTE modelling at Shiseido.'},
 
   // Azure / Modern
-  { w:'Azure Databricks',  size:'xl', cat:'azure',    tip:'Azure Databricks — 2.5 yrs transitioning SAP data models into unified Azure DB artifacts.' },
-  { w:'Unified Reporting', size:'lg', cat:'azure',    tip:'Customer vision of a single source of truth consolidating multi-vendor SAP data via Databricks.' },
-  { w:'Data Migration',    size:'md', cat:'azure',    tip:'SAP Business Process Core Tables migrated to Azure Databricks artifacts for modern analytics.' },
-  { w:'Multi-Vendor',      size:'md', cat:'azure',    tip:'Coordinating quality and fairness across multiple system integrators and vendors.' },
+  {w:'Azure Databricks',    sz:'xl', cat:'azure',    tip:'2.5 yrs transitioning SAP data models into unified Azure Databricks artifacts for Life Science client.'},
+  {w:'Unified Reporting',   sz:'lg', cat:'azure',    tip:'Customer vision: single source of truth consolidating multi-vendor SAP data via Databricks platform.'},
+  {w:'Data Migration',      sz:'md', cat:'azure',    tip:'SAP Business Process Core Tables migrated to Azure Databricks artifacts for modern analytics layer.'},
+  {w:'Multi-Vendor',        sz:'md', cat:'azure',    tip:'Coordinating architectural quality and business fairness across competing system integrators.'},
 
   // Domain
-  { w:'Demand Planning',   size:'lg', cat:'domain',   tip:'3 years operating SAP Demand Planning Forecasting data models in production.' },
-  { w:'Production Planning',size:'md', cat:'domain',   tip:'SAP Production Planning (PP) data models maintained in live operation for Life Science client.' },
-  { w:'IFRS 17',           size:'md', cat:'domain',   tip:'IFRS 17 Financial Reporting implemented at AIA Group Hong Kong for insurance compliance.' },
-  { w:'HR Analytics',      size:'md', cat:'domain',   tip:'Global HR Analytics — Headcount, FTE Utilisation across demographic & org dimensions at Shiseido.' },
-  { w:'Sales Reporting',   size:'sm', cat:'domain',   tip:'Daily Sales Dashboard for AIA Group Executives — VoNB, ANP, Agency Metrics.' },
-  { w:'Supply Chain',      size:'sm', cat:'domain',   tip:'Takeda global Supply Chain KPI dashboards across Europe, Japan, US and India.' },
+  {w:'Demand Planning',     sz:'lg', cat:'domain',   tip:'3 years in live operation of SAP Demand Planning Forecasting data models for Life Science.'},
+  {w:'Production Planning', sz:'md', cat:'domain',   tip:'SAP PP data models in production operation — part of 3-year operation excellence engagement.'},
+  {w:'IFRS 17',             sz:'md', cat:'domain',   tip:'IFRS 17 Financial Reporting implemented at AIA Group Hong Kong for insurance compliance.'},
+  {w:'HR Analytics',        sz:'md', cat:'domain',   tip:'Headcount & FTE Utilisation across demographic → organisational → sensitive data hierarchy at Shiseido.'},
+  {w:'Sales Reporting',     sz:'sm', cat:'domain',   tip:'Daily Sales Dashboard for AIA Group Executives — VoNB, ANP, Agency Metrics with role-based security.'},
+  {w:'Supply Chain KPIs',   sz:'sm', cat:'domain',   tip:'22 KPIs across Supply Chain, Manufacturing, Quality & People at Takeda global BI program.'},
 
   // Practice
-  { w:'Operation Excellence',size:'lg', cat:'practice','tip':'Ensuring data quality, process stability and cost optimisation across live production systems.' },
-  { w:'Data Archive',      size:'md', cat:'practice', tip:'Historical data archiving strategy for cost optimization and information processing efficiency.' },
-  { w:'Security Design',   size:'md', cat:'practice', tip:'Role-based security models, SAML 2.0, SSO — designed for AIA HK and Takeda.' },
-  { w:'Rapid Prototyping', size:'sm', cat:'practice', tip:'22+ prototypes delivered to AIA stakeholders before final product sign-off.' },
-  { w:'Business Fairness', size:'sm', cat:'practice', tip:'Ensuring objective alignment and transparency within multi-vendor project ecosystems.' },
+  {w:'Operation Excellence',sz:'lg', cat:'practice', tip:'Ensuring data quality, process stability and cost optimisation across live production systems.'},
+  {w:'Data Archive',        sz:'md', cat:'practice', tip:'Historical data archiving strategy for cost optimization and information processing efficiency.'},
+  {w:'Security Design',     sz:'md', cat:'practice', tip:'Role-based security models, SAML 2.0, SSO — designed for AIA HK, Takeda and SAP BO deployments.'},
+  {w:'Rapid Prototyping',   sz:'sm', cat:'practice', tip:'22+ prototypes delivered to AIA stakeholders iteratively before final product sign-off.'},
+  {w:'Business Fairness',   sz:'sm', cat:'practice', tip:'Ensuring objective alignment and transparency within multi-vendor project ecosystems.'},
 ];
 
-const cloud = document.getElementById('wordCloud');
-words.forEach((w, i) => {
-  const el = document.createElement('span');
-  el.className = `wc-word wc-${w.size} wc-${w.cat}`;
-  el.textContent = w.w;
-  el.style.transitionDelay = (i * 40) + 'ms';
-  bindTip(el, `<strong>${w.w}</strong>${w.tip}`);
-  cloud.appendChild(el);
-});
+// Category meta — colours reassigned dynamically per theme
+const catMeta = [
+  {id:'sap',      label:'SAP Platform'},
+  {id:'azure',    label:'Azure / Modern'},
+  {id:'domain',   label:'Domain'},
+  {id:'practice', label:'Practice'},
+];
 
-// ── SKILLS ────────────────────────────────────────────────
+// We'll compute colours from CSS variables at runtime
+function getCSSVar(v){ return getComputedStyle(root).getPropertyValue(v).trim(); }
+
+function wordCatColors(cat){
+  const a  = getCSSVar('--accent');
+  const a2 = getCSSVar('--accent2');
+  const a3 = getCSSVar('--accent3');
+  const w  = getCSSVar('--warm');
+  const bg = getCSSVar('--bg');
+  const s2 = getCSSVar('--surface2');
+  // Parse hex to rgba helper
+  function hex2rgba(hex,alpha){
+    hex=hex.replace('#','');
+    if(hex.length===3) hex=hex.split('').map(x=>x+x).join('');
+    const r=parseInt(hex.slice(0,2),16),g=parseInt(hex.slice(2,4),16),b=parseInt(hex.slice(4,6),16);
+    return `rgba(${r},${g},${b},${alpha})`;
+  }
+  const map = {
+    sap:      {bg:hex2rgba(a3.trim(),.15),  fg:a2.trim()},
+    azure:    {bg:hex2rgba(a2.trim(),.12),  fg:a.trim()},
+    domain:   {bg:hex2rgba(w.trim(),.14),   fg:w.trim()},
+    practice: {bg:hex2rgba(a.trim(),.10),   fg:a3.trim()},
+  };
+  return map[cat] || {bg:s2, fg:a};
+}
+
+const cloudEl = document.getElementById('wordCloud');
+const legendEl = document.getElementById('cloudLegend');
+const wordEls = [];
+
+function buildWordCloud(){
+  // Legend
+  legendEl.innerHTML='';
+  catMeta.forEach(c=>{
+    const col = wordCatColors(c.id);
+    legendEl.innerHTML += `<div class="legend-dot"><span style="background:${col.fg}"></span>${c.label}</div>`;
+  });
+
+  cloudEl.innerHTML='';
+  words.forEach((w,i)=>{
+    const el = document.createElement('span');
+    el.className = `wc-word wc-${w.sz}`;
+    el.textContent = w.w;
+    el.style.transitionDelay = (i*38)+'ms';
+    const col = wordCatColors(w.cat);
+    el.style.background = col.bg;
+    el.style.color = col.fg;
+    bindTip(el,`<strong>${w.w}</strong>${w.tip}`);
+    cloudEl.appendChild(el);
+    wordEls.push(el);
+  });
+}
+
+function updateWordCloudColors(){
+  legendEl.innerHTML='';
+  catMeta.forEach(c=>{
+    const col = wordCatColors(c.id);
+    legendEl.innerHTML += `<div class="legend-dot"><span style="background:${col.fg}"></span>${c.label}</div>`;
+  });
+  const allWords = cloudEl.querySelectorAll('.wc-word');
+  words.forEach((w,i)=>{
+    const col = wordCatColors(w.cat);
+    allWords[i].style.background = col.bg;
+    allWords[i].style.color = col.fg;
+  });
+}
+
+buildWordCloud();
+
+// ══════════════════════════════════════════
+// SKILLS
+// ══════════════════════════════════════════
 const skills = [
-  { name:"SAP BusinessObjects 4.x", pct:97, tip:"Universe Design Tool, IDT, Web Intelligence, SAML 2.0, SSO, server sizing & installation." },
-  { name:"SAP BW / BW4HANA",        pct:95, tip:"LSA++ architecture, Process Chains, Transport, Performance Tuning, Authorizations. 7+ years." },
-  { name:"SAP Analytics Cloud",     pct:86, tip:"Dashboards, hybrid data models, HR Analytics (Shiseido) & Sales Planning (AIA)." },
-  { name:"SAP Lumira Designer",     pct:90, tip:"Analysis Application design via BAL Script & CSS Script." },
-  { name:"Data Modelling",          pct:95, tip:"Star Schema, LSA++, HANA CDS Views, BPC integration, Azure Databricks models." },
-  { name:"SQL / HANA Views",        pct:84, tip:"Query performance tuning, Database Engine Tuning, MTD/QTD/YTD HANA logic." },
-  { name:"Azure Databricks",        pct:75, tip:"2.5 yrs SAP-to-Azure data model transition in Life Science multi-vendor program." },
-  { name:"Project Management",      pct:84, tip:"PRINCE2 Practitioner. Led 12-member global BW teams across 4 geographies." },
-  { name:"Microsoft BI / Power BI", pct:74, tip:"SQL Server, SSIS, Power BI, Proclarity 6.3 — Unilever Europe CRM reporting." },
+  {name:'SAP BusinessObjects 4.x', pct:97, tip:'Universe Design Tool, IDT, Web Intelligence, SAML 2.0, SSO, server sizing & installation.'},
+  {name:'SAP BW / BW4HANA',        pct:95, tip:'LSA++ architecture, Process Chains, Transport, Performance Tuning, Authorizations. 7+ yrs.'},
+  {name:'SAP Analytics Cloud',     pct:86, tip:'Dashboards, hybrid data models, HR Analytics (Shiseido) & Sales Planning (AIA).'},
+  {name:'SAP Lumira Designer',     pct:90, tip:'Analysis Application design via BAL Script & CSS Script for enterprise dashboards.'},
+  {name:'Data Modelling',          pct:95, tip:'Star Schema, LSA++, HANA CDS Views, BPC integration, Azure Databricks models.'},
+  {name:'SQL / HANA Views',        pct:84, tip:'Query performance tuning, Database Engine Tuning, MTD/QTD/YTD HANA logic.'},
+  {name:'Azure Databricks',        pct:76, tip:'2.5 yrs SAP-to-Azure data model transition in Life Science multi-vendor program.'},
+  {name:'Project Management',      pct:84, tip:'PRINCE2 Practitioner. Led 12-member global BW teams across 4 geographies.'},
+  {name:'Microsoft BI / Power BI', pct:74, tip:'SQL Server, SSIS, Power BI — Unilever Europe CRM reporting & Takeda dashboards.'},
 ];
-
 const sl = document.getElementById('skillList');
-skills.forEach(s => {
-  const d = document.createElement('div');
-  d.className = 'sk-row';
-  d.innerHTML = `
-    <div class="sk-top">
-      <span class="sk-name">${s.name}</span>
-      <span class="sk-pct">${s.pct}%</span>
-    </div>
-    <div class="sk-track">
-      <div class="sk-fill" data-pct="${s.pct}"></div>
-    </div>`;
-  bindTip(d, `<strong>${s.name}</strong>${s.tip}`);
+skills.forEach(s=>{
+  const d=document.createElement('div'); d.className='sk-row';
+  d.innerHTML=`<div class="sk-top"><span class="sk-name">${s.name}</span><span class="sk-pct">${s.pct}%</span></div><div class="sk-track"><div class="sk-fill" data-pct="${s.pct}"></div></div>`;
+  bindTip(d,`<strong>${s.name}</strong>${s.tip}`);
   sl.appendChild(d);
 });
 
-// ── DONUTS ────────────────────────────────────────────────
+// ══════════════════════════════════════════
+// DONUTS
+// ══════════════════════════════════════════
 const domains = [
-  { label:"Life Science", yrs:3.5, color:"#3A7D5C", tip:"Capgemini Germany (2021–Now) — Demand Planning, PP Data Models, Azure Databricks transition." },
-  { label:"Insurance",    yrs:2,   color:"#2D6A8F", tip:"AIA Group HK (2019–21) — IFRS 17, Management Reporting 2.0, Daily Sales Dashboards." },
-  { label:"Pharma",       yrs:2,   color:"#80B89E", tip:"Takeda (2017–18) — 22 KPIs, Supply Chain & Quality dashboards for 250+ users globally." },
-  { label:"Airlines &\nAuto", yrs:3, color:"#C87941", tip:"Cathay Pacific Project Horizon (2016–17) & Volvo Cars BW on HANA migration (2015–16)." },
-  { label:"FMCG &\nOther", yrs:5,  color:"#D99A6C", tip:"Unilever Europe (2007–10), Smiths Detection UK (2014–15), Accenture & AMDOCS (2006–10)." },
-  { label:"Beauty &\nHR",  yrs:0.5, color:"#6B4E8A", tip:"Shiseido Japan (Apr–Jul 2021) — Global HR Analytics on SAP Analytics Cloud & SuccessFactors." },
+  {label:'Life Science',       yrs:3.5, tip:'Capgemini Germany (2021–Now) — Demand Planning, PP Models, Azure Databricks transition.'},
+  {label:'Insurance',          yrs:2,   tip:'AIA Group HK (2019–21) — IFRS 17, Management Reporting 2.0, Daily Sales Dashboards.'},
+  {label:'Pharma',             yrs:2,   tip:'Takeda (2017–18) — 22 KPIs, Supply Chain & Quality dashboards for 250+ users globally.'},
+  {label:'Airlines &\nAuto',  yrs:3,   tip:'Cathay Pacific Project Horizon (2016–17) & Volvo Cars BW on HANA (2015–16).'},
+  {label:'FMCG &\nOther',     yrs:5,   tip:'Unilever Europe (2007–10), Smiths Detection UK (2014–15), AMDOCS AT&T DW (2010).'},
+  {label:'Beauty &\nHR',      yrs:0.5, tip:'Shiseido Japan (Apr–Jul 2021) — Global HR Analytics on SAP AC & SuccessFactors.'},
 ];
 
+const donutColors = ['--accent','--accent2','--accent3','--warm','--muted','--accent2'];
 const dw = document.getElementById('donutsWrap');
+const donutRings = [];
 const totalYrs = 16;
-domains.forEach(d => {
-  const pct = Math.min((d.yrs / totalYrs) * 100, 100);
-  const circ = 2 * Math.PI * 16;
-  const wrap = document.createElement('div');
-  wrap.className = 'donut-item';
-  wrap.innerHTML = `
+
+domains.forEach((d,i)=>{
+  const pct = Math.min((d.yrs/totalYrs)*100,100);
+  const circ = 2*Math.PI*16;
+  const wrap=document.createElement('div'); wrap.className='donut-item';
+  wrap.innerHTML=`
     <div class="donut-yrs">${d.yrs}y</div>
-    <svg class="donut-svg" width="58" height="58" viewBox="0 0 36 36">
+    <svg class="donut-svg" width="56" height="56" viewBox="0 0 36 36">
       <circle class="d-bg" cx="18" cy="18" r="16"/>
-      <circle class="d-ring" cx="18" cy="18" r="16" stroke="${d.color}" data-fill="${pct}"/>
+      <circle class="d-ring" cx="18" cy="18" r="16" data-fill="${pct}" data-color-var="${donutColors[i]}"/>
     </svg>
     <div class="donut-lbl">${d.label.replace('\n','<br>')}</div>`;
-  bindTip(wrap, `<strong>${d.label.replace('\n',' ')}</strong>${d.tip}`);
+  bindTip(wrap,`<strong>${d.label.replace('\n',' ')}</strong>${d.tip}`);
   dw.appendChild(wrap);
+  donutRings.push(wrap.querySelector('.d-ring'));
 });
 
-// ── INTERSECTION OBSERVER ─────────────────────────────────
-const io = new IntersectionObserver(entries => {
-  entries.forEach(en => {
-    if (!en.isIntersecting) return;
-    const el = en.target;
+function updateDonutColors(){
+  donutRings.forEach(r=>{
+    const v = r.dataset.colorVar;
+    r.style.stroke = getCSSVar(v);
+  });
+}
+
+// ══════════════════════════════════════════
+// INTERSECTION OBSERVER
+// ══════════════════════════════════════════
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(en=>{
+    if(!en.isIntersecting) return;
+    const el=en.target;
     el.classList.add('visible');
 
-    // Word cloud letters
-    el.querySelectorAll('.wc-word').forEach(w => w.classList.add('visible'));
+    // word cloud
+    el.querySelectorAll('.wc-word').forEach(w=>w.classList.add('visible'));
 
-    // Skill bars
-    el.querySelectorAll('.sk-fill').forEach(f => { f.style.width = f.dataset.pct + '%'; });
+    // skill bars
+    el.querySelectorAll('.sk-fill').forEach(f=>{ f.style.width=f.dataset.pct+'%'; });
 
-    // Donut rings
-    el.querySelectorAll('.d-ring').forEach(r => {
-      const circ = 2 * Math.PI * 16;
-      const dash = (parseFloat(r.dataset.fill) / 100) * circ;
-      r.style.strokeDasharray = `${dash} ${circ - dash}`;
+    // donuts
+    el.querySelectorAll('.d-ring').forEach(r=>{
+      const circ=2*Math.PI*16;
+      const dash=(parseFloat(r.dataset.fill)/100)*circ;
+      r.style.strokeDasharray=`${dash} ${circ-dash}`;
+      // set colour from theme
+      const v=r.dataset.colorVar;
+      r.style.stroke=getCSSVar(v);
     });
 
-    // Utilisation bars
-    el.querySelectorAll('.util-fill').forEach(f => { f.style.width = f.dataset.pct + '%'; });
+    // util bars
+    el.querySelectorAll('.util-fill').forEach(f=>{ f.style.width=f.dataset.pct+'%'; });
 
     io.unobserve(el);
   });
-}, { threshold: 0.12 });
+},{threshold:0.1});
 
-document.querySelectorAll('.fade-up, .tl-item').forEach(el => io.observe(el));
+document.querySelectorAll('.fade-up, .tl-item').forEach(el=>io.observe(el));
 </script>
 
 </body>
