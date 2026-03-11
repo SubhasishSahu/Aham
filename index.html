@@ -278,10 +278,52 @@ body {
 .pill .l { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.35); margin-top: 2px; }
 
 /* ── PAGE ── */
-.page { max-width: 1160px; margin: 0 auto; padding: 36px 40px 60px; }
-.row { display: grid; gap: 22px; margin-bottom: 22px; }
-.row-2  { grid-template-columns: 1fr 1fr; }
-.row-13 { grid-template-columns: 1.18fr .82fr; }
+.page { max-width: 100%; margin: 0; padding: 28px 32px 60px; }
+
+/* ══ SECTION SYSTEM — horizontal scroll per row, like Project Highlights ══ */
+.section { margin-bottom: 30px; }
+
+.section-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--muted);
+  margin-bottom: 12px; padding-left: 2px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-label::after { content:''; flex:1; height:1px; background:var(--border); }
+
+.section-track {
+  display: flex; gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+.section-track::-webkit-scrollbar { height: 4px; }
+.section-track::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+.section-track > .card { flex: 0 0 auto; scroll-snap-align: start; }
+
+/* Card width per type */
+.c-about    { width: clamp(300px, 36vw, 480px); }
+.c-cloud    { width: clamp(340px, 52vw, 720px); }
+.c-proj     { width: clamp(340px, 88vw, 1100px); }
+.c-timeline { width: clamp(300px, 42vw, 560px); }
+.c-skills   { width: clamp(280px, 36vw, 480px); }
+.c-domain   { width: clamp(300px, 42vw, 560px); }
+.c-globe    { width: clamp(280px, 38vw, 500px); }
+.c-certs    { width: clamp(300px, 46vw, 620px); }
+.c-edu      { width: clamp(280px, 38vw, 500px); }
+
+@media(max-width: 768px){
+  .page { padding: 16px 14px 40px; }
+  .section-track > .card { width: 88vw !important; }
+  .cert-grid { grid-template-columns: 1fr; }
+  .proj-card { flex: 0 0 270px; }
+  .theme-bar { flex-wrap: wrap; justify-content: center; padding: 8px 10px; }
+  .hero { padding: 28px 18px 24px; grid-template-columns: 1fr; }
+  .hero-pills { flex-direction: row; flex-wrap: wrap; }
+}
 
 /* ── CARD ── */
 .card {
@@ -518,7 +560,9 @@ footer { text-align: center; padding: 18px; font-size: 10.5px; color: var(--mute
   .hero { grid-template-columns: 1fr; padding: 32px 20px; }
   .hero-pills { flex-direction: row; flex-wrap: wrap; }
   .page { padding: 20px 16px 40px; }
-  .row-2,.row-13 { grid-template-columns: 1fr; }
+  .section-scroll > .card,
+  .card-about, .card-cloud, .card-timeline, .card-skills,
+  .card-domain, .card-globe, .card-certs, .card-edu { width: 85vw; }
   .cert-grid { grid-template-columns: 1fr; }
   .proj-card { flex: 0 0 265px; }
   .theme-bar { flex-wrap: wrap; justify-content: center; padding: 8px 12px; }
@@ -564,46 +608,53 @@ footer { text-align: center; padding: 18px; font-size: 10.5px; color: var(--mute
 
 <div class="page">
 
-  <!-- ROW 1: Summary + Word Cloud -->
+  <!-- ══ SECTION 1: About + Activity Cloud ══ -->
 
-  <div class="row row-2">
+  <div class="section">
+    <div class="section-label">01 · Profile &amp; Skills Focus</div>
+    <div class="section-track">
 
 ```
-<div class="card fade-up">
-  <div class="chip">About</div>
-  <p class="summary-body">
-    Business Analytics Consultant with <strong>19+ years</strong> specializing in helping organizations establish a <strong>reliable single source of truth</strong>. Proven track record leading global BI programs through <strong>rapid prototyping</strong> and real-world use cases — bridging business stakeholders with SAP and Non-SAP analytics platforms across insurance, pharma, life science, and FMCG industries.
-  </p>
-  <div class="tag-row">
-    <span class="tag hi">SAP Expert</span>
-    <span class="tag">Solution Architect</span>
-    <span class="tag">Project Manager</span>
-    <span class="tag">Team Lead</span>
-    <span class="tag">Pre-Sales</span>
-    <span class="tag">IFRS 17</span>
-    <span class="tag">Azure Databricks</span>
-  </div>
-</div>
-
-<div class="card fade-up" style="animation-delay:.1s">
-  <div class="chip">Activity Cloud · Current Role</div>
-  <div class="cloud-legend" id="cloudLegend"></div>
-  <div class="word-cloud" id="wordCloud"></div>
-</div>
-```
-
+  <div class="card fade-up c-about">
+    <div class="chip">About</div>
+    <p class="summary-body">
+      Business Analytics Consultant with <strong>19+ years</strong> specializing in helping organizations establish a <strong>reliable single source of truth</strong>. Proven track record leading global BI programs through <strong>rapid prototyping</strong> and real-world use cases — bridging business stakeholders with SAP and Non-SAP analytics platforms across insurance, pharma, life science, and FMCG industries.
+    </p>
+    <div class="tag-row">
+      <span class="tag hi">SAP Expert</span>
+      <span class="tag">Solution Architect</span>
+      <span class="tag">Project Manager</span>
+      <span class="tag">Team Lead</span>
+      <span class="tag">Pre-Sales</span>
+      <span class="tag">IFRS 17</span>
+      <span class="tag">Azure Databricks</span>
+    </div>
   </div>
 
-  <!-- ROW 2: Project Cards -->
+  <div class="card fade-up c-cloud" style="animation-delay:.1s">
+    <div class="chip">Activity Cloud · Current Role</div>
+    <div class="cloud-legend" id="cloudLegend"></div>
+    <div class="word-cloud" id="wordCloud"></div>
+  </div>
 
-  <div class="row">
-    <div class="card card-span fade-up" style="animation-delay:.16s">
-      <div class="chip">Project Highlights</div>
-      <div class="card-h" style="margin-bottom:14px;">Key Engagements &nbsp;—&nbsp; <span style="font-size:13px;font-weight:400;color:var(--muted)">scroll to explore →</span></div>
-      <div class="projects-scroll-wrap">
-        <div class="projects-scroll">
+</div>
+```
+
+  </div>
+
+  <!-- ══ SECTION 2: Project Highlights ══ -->
+
+  <div class="section">
+    <div class="section-label">02 · Project Highlights</div>
+    <div class="section-track">
 
 ```
+  <div class="card fade-up c-proj" style="animation-delay:.14s">
+    <div class="chip">Project Highlights</div>
+    <div class="card-h" style="margin-bottom:14px;">Key Engagements &nbsp;—&nbsp; <span style="font-size:13px;font-weight:400;color:var(--muted)">scroll to explore →</span></div>
+    <div class="projects-scroll-wrap">
+      <div class="projects-scroll">
+
       <!-- CARD 1 -->
       <div class="proj-card c1">
         <div>
@@ -720,83 +771,92 @@ footer { text-align: center; padding: 18px; font-size: 10.5px; color: var(--mute
     <div class="scroll-arrow">›</div>
   </div>
 </div>
+</div><!-- /section-track -->
 ```
 
-  </div>
+  </div><!-- /section 2 -->
 
-  <!-- ROW 3: Timeline + Skills -->
+  <!-- ══ SECTION 3: Career Journey + Technical Skills ══ -->
 
-  <div class="row row-13">
-    <div class="card fade-up" style="animation-delay:.22s">
-      <div class="chip">Career Journey</div>
-      <div class="card-h">19 Years of Progression</div>
-      <div class="tl">
-        <div class="tl-item now">
-          <div class="tl-dot"></div>
-          <div class="tl-period">Oct 2021 – Present</div>
-          <div class="tl-role">Managing Application Consultant</div>
-          <div class="tl-co">Capgemini, Germany — Life Science Program</div>
-          <span class="tl-badge">Azure Databricks · SAP BI · Multi-Vendor</span>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-period">Apr – Jul 2021</div>
-          <div class="tl-role">SAP Analytics Cloud Consultant</div>
-          <div class="tl-co">Shiseido Japan</div>
-          <span class="tl-badge">HR Analytics · SuccessFactors</span>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-period">Feb 2019 – Feb 2021</div>
-          <div class="tl-role">External Consultant</div>
-          <div class="tl-co">AIA Group, Hong Kong</div>
-          <span class="tl-badge">Insurance · IFRS 17 · SAP AC</span>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-period">May 2013 – Jan 2019</div>
-          <div class="tl-role">Manager / Senior BI Consultant</div>
-          <div class="tl-co">Capgemini India — Takeda · Cathay Pacific · Volvo · Smiths</div>
-          <span class="tl-badge">Pharma · Airlines · Automotive · Defence</span>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-period">Dec 2010 – May 2013</div>
-          <div class="tl-role">SAP BI Consultant / SME</div>
-          <div class="tl-co">HCL Infosystems · Reliance Industries</div>
-          <span class="tl-badge">SAP BW · BO XI · QlikView</span>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-period">Jun 2006 – Dec 2010</div>
-          <div class="tl-role">Software Engineer → Senior SME</div>
-          <div class="tl-co">Accenture & AMDOCS, India</div>
-          <span class="tl-badge">MS BI · SSIS · ETL · Teradata</span>
-        </div>
-      </div>
+  <div class="section">
+    <div class="section-label">03 · Career Journey &amp; Technical Skills</div>
+    <div class="section-track">
+
+```
+<div class="card fade-up c-timeline" style="animation-delay:.22s">
+  <div class="chip">Career Journey</div>
+  <div class="card-h">19 Years of Progression</div>
+  <div class="tl">
+    <div class="tl-item now">
+      <div class="tl-dot"></div>
+      <div class="tl-period">Oct 2021 – Present</div>
+      <div class="tl-role">Managing Application Consultant</div>
+      <div class="tl-co">Capgemini, Germany — Life Science Program</div>
+      <span class="tl-badge">Azure Databricks · SAP BI · Multi-Vendor</span>
     </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-period">Apr – Jul 2021</div>
+      <div class="tl-role">SAP Analytics Cloud Consultant</div>
+      <div class="tl-co">Shiseido Japan</div>
+      <span class="tl-badge">HR Analytics · SuccessFactors</span>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-period">Feb 2019 – Feb 2021</div>
+      <div class="tl-role">External Consultant</div>
+      <div class="tl-co">AIA Group, Hong Kong</div>
+      <span class="tl-badge">Insurance · IFRS 17 · SAP AC</span>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-period">May 2013 – Jan 2019</div>
+      <div class="tl-role">Manager / Senior BI Consultant</div>
+      <div class="tl-co">Capgemini India — Takeda · Cathay Pacific · Volvo · Smiths</div>
+      <span class="tl-badge">Pharma · Airlines · Automotive · Defence</span>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-period">Dec 2010 – May 2013</div>
+      <div class="tl-role">SAP BI Consultant / SME</div>
+      <div class="tl-co">HCL Infosystems · Reliance Industries</div>
+      <span class="tl-badge">SAP BW · BO XI · QlikView</span>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-period">Jun 2006 – Dec 2010</div>
+      <div class="tl-role">Software Engineer → Senior SME</div>
+      <div class="tl-co">Accenture & AMDOCS, India</div>
+      <span class="tl-badge">MS BI · SSIS · ETL · Teradata</span>
+    </div>
+  </div>
+</div>
 
-```
-<div class="card fade-up" style="animation-delay:.28s">
+<div class="card fade-up c-skills" style="animation-delay:.28s">
   <div class="chip">Technical Skills</div>
   <div class="card-h">Proficiency</div>
   <div class="skill-list" id="skillList"></div>
 </div>
+
+</div><!-- /section-track -->
 ```
 
-  </div>
+  </div><!-- /section 3 -->
 
-  <!-- ROW 4: Domains + Globe -->
+  <!-- ══ SECTION 4: Industry Expertise + Global Footprint ══ -->
 
-  <div class="row row-2">
-    <div class="card fade-up" style="animation-delay:.32s">
-      <div class="chip">Industry Experience</div>
-      <div class="card-h">Domain Breakdown</div>
-      <div class="donuts-wrap" id="donutsWrap"></div>
-    </div>
+  <div class="section">
+    <div class="section-label">04 · Industry Expertise &amp; Global Footprint</div>
+    <div class="section-track">
 
 ```
-<div class="card fade-up" style="animation-delay:.36s">
+<div class="card fade-up c-domain" style="animation-delay:.32s">
+  <div class="chip">Industry Experience</div>
+  <div class="card-h">Domain Breakdown</div>
+  <div class="donuts-wrap" id="donutsWrap"></div>
+</div>
+
+<div class="card fade-up c-globe" style="animation-delay:.36s">
   <div class="chip">Global Footprint</div>
   <div class="card-h">Customer-Facing Roles</div>
   <div class="globe-grid">
@@ -818,54 +878,59 @@ footer { text-align: center; padding: 18px; font-size: 10.5px; color: var(--mute
     </div>
   </div>
 </div>
+
+</div><!-- /section-track -->
 ```
 
-  </div>
+  </div><!-- /section 4 -->
 
-  <!-- ROW 5: Certs + Education -->
+  <!-- ══ SECTION 5: Certifications + Education ══ -->
 
-  <div class="row row-2">
-    <div class="card fade-up" style="animation-delay:.4s">
-      <div class="chip">Certifications</div>
-      <div class="card-h">Continuous Learning</div>
-      <div class="cert-grid">
-        <div class="cert-item" data-tip="<strong>PRINCE2 Practitioner</strong>License: 03512857-01-LQ5N. Project management methodology. APMG International, 2015.">
-          <div class="cert-ico">P2</div>
-          <div><div class="cert-name">PRINCE2 Practitioner</div><div class="cert-org">APMG · 2015</div></div>
-        </div>
-        <div class="cert-item" data-tip="<strong>SAP BW on HANA</strong>Verified at open.sap.com. SAP Business Warehouse powered by SAP HANA. 2014.">
-          <div class="cert-ico">SAP</div>
-          <div><div class="cert-name">SAP BW on HANA</div><div class="cert-org">SAP · 2014</div></div>
-        </div>
-        <div class="cert-item" data-tip="<strong>Adv. Business Analytics & Optimization</strong>Certificate of ABAO. IIT Kharagpur online program. 2014–15.">
-          <div class="cert-ico warm">IIT</div>
-          <div><div class="cert-name">Adv. Business Analytics</div><div class="cert-org">IIT Kharagpur · 2015</div></div>
-        </div>
-        <div class="cert-item" data-tip="<strong>The Analytics Edge</strong>Certificate of Achievement. edX / MITx. Data analysis using R. 2015.">
-          <div class="cert-ico warm">MIT</div>
-          <div><div class="cert-name">The Analytics Edge</div><div class="cert-org">edX MIT · 2015</div></div>
-        </div>
-        <div class="cert-item" data-tip="<strong>Supply Chain Analytics</strong>MITx — demand forecasting, inventory optimisation and analytics modelling. 2017.">
-          <div class="cert-ico warm">MIT</div>
-          <div><div class="cert-name">Supply Chain Analytics</div><div class="cert-org">MITx · 2017</div></div>
-        </div>
-        <div class="cert-item" data-tip="<strong>SAP S/4HANA Cloud</strong>SAP open.sap.com verified. Intelligent ERP capabilities and cloud transitions. 2018.">
-          <div class="cert-ico">SAP</div>
-          <div><div class="cert-name">SAP S/4HANA Cloud</div><div class="cert-org">SAP · 2018</div></div>
-        </div>
-        <div class="cert-item" data-tip="<strong>FinTech & Risk Management</strong>Corporate Finance Institute (CFI). Financial technology and risk frameworks.">
-          <div class="cert-ico">CFI</div>
-          <div><div class="cert-name">FinTech & Risk Mgmt</div><div class="cert-org">CFI · Recent</div></div>
-        </div>
-        <div class="cert-item" data-tip="<strong>Excel for Finance</strong>Corporate Finance Institute (CFI). Financial modelling and Excel best practices.">
-          <div class="cert-ico">CFI</div>
-          <div><div class="cert-name">Excel for Finance</div><div class="cert-org">CFI · Recent</div></div>
-        </div>
-      </div>
+  <div class="section">
+    <div class="section-label">05 · Certifications &amp; Education</div>
+    <div class="section-track">
+
+```
+<div class="card fade-up c-certs" style="animation-delay:.4s">
+  <div class="chip">Certifications</div>
+  <div class="card-h">Continuous Learning</div>
+  <div class="cert-grid">
+    <div class="cert-item" data-tip="<strong>PRINCE2 Practitioner</strong>License: 03512857-01-LQ5N. Project management methodology. APMG International, 2015.">
+      <div class="cert-ico">P2</div>
+      <div><div class="cert-name">PRINCE2 Practitioner</div><div class="cert-org">APMG · 2015</div></div>
     </div>
+    <div class="cert-item" data-tip="<strong>SAP BW on HANA</strong>Verified at open.sap.com. SAP Business Warehouse powered by SAP HANA. 2014.">
+      <div class="cert-ico">SAP</div>
+      <div><div class="cert-name">SAP BW on HANA</div><div class="cert-org">SAP · 2014</div></div>
+    </div>
+    <div class="cert-item" data-tip="<strong>Adv. Business Analytics & Optimization</strong>Certificate of ABAO. IIT Kharagpur online program. 2014–15.">
+      <div class="cert-ico warm">IIT</div>
+      <div><div class="cert-name">Adv. Business Analytics</div><div class="cert-org">IIT Kharagpur · 2015</div></div>
+    </div>
+    <div class="cert-item" data-tip="<strong>The Analytics Edge</strong>Certificate of Achievement. edX / MITx. Data analysis using R. 2015.">
+      <div class="cert-ico warm">MIT</div>
+      <div><div class="cert-name">The Analytics Edge</div><div class="cert-org">edX MIT · 2015</div></div>
+    </div>
+    <div class="cert-item" data-tip="<strong>Supply Chain Analytics</strong>MITx — demand forecasting, inventory optimisation and analytics modelling. 2017.">
+      <div class="cert-ico warm">MIT</div>
+      <div><div class="cert-name">Supply Chain Analytics</div><div class="cert-org">MITx · 2017</div></div>
+    </div>
+    <div class="cert-item" data-tip="<strong>SAP S/4HANA Cloud</strong>SAP open.sap.com verified. Intelligent ERP capabilities and cloud transitions. 2018.">
+      <div class="cert-ico">SAP</div>
+      <div><div class="cert-name">SAP S/4HANA Cloud</div><div class="cert-org">SAP · 2018</div></div>
+    </div>
+    <div class="cert-item" data-tip="<strong>FinTech & Risk Management</strong>Corporate Finance Institute (CFI). Financial technology and risk frameworks.">
+      <div class="cert-ico">CFI</div>
+      <div><div class="cert-name">FinTech & Risk Mgmt</div><div class="cert-org">CFI · Recent</div></div>
+    </div>
+    <div class="cert-item" data-tip="<strong>Excel for Finance</strong>Corporate Finance Institute (CFI). Financial modelling and Excel best practices.">
+      <div class="cert-ico">CFI</div>
+      <div><div class="cert-name">Excel for Finance</div><div class="cert-org">CFI · Recent</div></div>
+    </div>
+  </div>
+</div>
 
-```
-<div class="card fade-up" style="animation-delay:.44s">
+<div class="card fade-up c-edu" style="animation-delay:.44s">
   <div class="chip">Education</div>
   <div class="card-h">Academic Background</div>
   <div class="edu-item">
@@ -895,9 +960,11 @@ footer { text-align: center; padding: 18px; font-size: 10.5px; color: var(--mute
     </div>
   </div>
 </div>
+
+</div><!-- /section-track -->
 ```
 
-  </div>
+  </div><!-- /section 5 -->
 
 </div>
 
